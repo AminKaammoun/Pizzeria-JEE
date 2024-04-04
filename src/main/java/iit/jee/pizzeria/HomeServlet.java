@@ -31,8 +31,8 @@ public class HomeServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		
-		response.getWriter().append("Served at haha: ").append(request.getContextPath());
+		request.getRequestDispatcher("/index.html").forward(request, response);
+		 
 	}
  
 	/**
