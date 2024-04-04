@@ -4,7 +4,7 @@
 				<div class="header-left">
 					<div id="logo">
 						<a href="index-2.html">
-							<img src="assets/images/logo-white.png" title="Your Store" alt="Your Store" class="img-responsive">
+							<img src="assets/images/logopizza.png" title="Your Store" alt="Your Store" class="img-responsive">
 						</a>
 					</div>
 				</div>
@@ -25,7 +25,7 @@
 									<div class="themability_megamenu-wrapper megamenu_typeheader">
 
 										<span id="remove-themability_megamenu" class="fa fa-times"></span>
-
+ 
 										<div class="themability_megamenu-pattern">
 											<div class="container">
 												<ul class="themability_megamenu" data-megamenuid="55" data-transition="slide" data-animationtime="500">
