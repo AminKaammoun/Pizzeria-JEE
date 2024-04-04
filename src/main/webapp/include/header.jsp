@@ -4,10 +4,10 @@
 				<div class="header-left">
 					<div id="logo">
 						<a href="index-2.html">
-							<img src="assets/images/logopizza.png" title="Your Store" alt="Your Store" class="img-responsive">
+							<img src="assets/images/logo-pizza.png" title="Your Store" alt="Your Store" class="img-responsive">
 						</a>
 					</div>
-				</div>
+				</div> 
 				<div class="header-center">
 					<div class="themability_megamenu-style-dev">
 						<div class="responsive themability_default">
