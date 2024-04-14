@@ -22,7 +22,8 @@ public class User {
 	private String psw;
 
 
-	
+	  public User() {
+	    }
 	public User( String name, String login, String email, String tel, String psw) {
 		super();
 		
