@@ -918,8 +918,18 @@ if (sess != null) {
 						class="hidden">My Account</span><span class="caret hidden"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-right account-link-toggle">
+						<%
+				if (session.getAttribute("login") != null) {
+				%>
+						<li><a href="/Pizzaria/Logout">Logout</a></li>
+						<%
+				}else{
+				%>
+						
 						<li><a href="/Pizzaria/login.jsp">Register</a></li>
 						<li><a href="/Pizzaria/login.jsp">Login</a></li>
+						<%} %>
+
 					</ul>
 				</div>
 				<%

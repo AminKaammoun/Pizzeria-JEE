@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transaction;
+import model.Role;
 import model.User;
 import util.HibernateUtil;
 
@@ -52,7 +53,8 @@ public class Register extends HttpServlet {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		org.hibernate.Transaction tx = null;
-		User u = new User(name, login, email, tel, psw);
+		//Role r = new Role("CLIENT");
+		User u = new User(1,name, login, email, tel, psw);
 		try {
 			tx = session.beginTransaction();
 			session.persist(u);

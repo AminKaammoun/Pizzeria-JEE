@@ -9,8 +9,13 @@ public class User {
 	@Id @GeneratedValue
 	@Column(name="id")
 	private int id;
+	
+	@Column(name = "role_id") 
+	private int role;
+	
 	@Column(name = "name")
 	private String name;
+	
 	@Column(name = "login")
 	private String login;	
 
@@ -24,9 +29,10 @@ public class User {
 
 	  public User() {
 	    }
-	public User( String name, String login, String email, String tel, String psw) {
+	public User(int role, String name, String login, String email, String tel, String psw) {
 		super();
 		
+		this.role = role;
 		this.name = name;
 		this.login = login;
 		this.email = email;
@@ -71,6 +77,14 @@ public class User {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	public int getRole() {
+		return role;
+	}
+	public void setRole(int role) {
+		this.role = role;
+	}
+
+
 
 	
 }
