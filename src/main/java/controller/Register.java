@@ -21,6 +21,8 @@ import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 
+import dao.UserDAO;
+
 /**
  * Servlet implementation class Register
  */
@@ -28,12 +30,16 @@ import java.io.IOException;
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
+	private UserDAO userDao;
+    
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+  
+
 	public Register() {
 		super();
-		// TODO Auto-generated constructor stub
+		   userDao=new UserDAO();
 	} 
 
 	/**
@@ -55,18 +61,7 @@ public class Register extends HttpServlet {
 		org.hibernate.Transaction tx = null;
 		//Role r = new Role("CLIENT");
 		User u = new User(1,name, login, email, tel, psw);
-		try {
-			tx = session.beginTransaction();
-			session.persist(u);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null)
-				tx.rollback();
-			throw e;
-		} finally {
-			session.close();
-		}
-	
+		userDao.create(u);
 
 	}
 

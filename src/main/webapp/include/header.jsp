@@ -935,10 +935,10 @@ if (sess != null) {
 				<%
 				if (session.getAttribute("login") != null) {
 				%>
-				<h5>
+				<h6>
 					Hello,
 					<%=session.getAttribute("login")%>
-				</h5>
+				</h6>
 				<%
 				}
 				%>
