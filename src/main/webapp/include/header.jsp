@@ -27,7 +27,7 @@ if (sess != null) {
 		<div class="header-inner">
 			<div class="header-left">
 				<div id="logo">
-					<a href="index-2.html"> <img src="assets/images/logo-pizza.png"
+					<a href="index.jsp"> <img src="assets/images/logo-pizza.png"
 						title="Your Store" alt="Your Store" class="img-responsive">
 					</a>
 				</div>
@@ -56,12 +56,12 @@ if (sess != null) {
 												data-transition="slide" data-animationtime="500">
 
 												<li class="home current-active active-first"><a
-													href="index-2.html"> <span><strong>
+													href="index.jsp"> <span><strong>
 																Home </strong></span>
 												</a></li>
 
 												<li class="with-sub-menu click">
-													<p class="close-menu"></p> <a href="shop.html"
+													<p class="close-menu"></p> <a href="shop.jsp"
 													class="clearfix"> <strong> Shop </strong> <b
 														class="fa fa-angle-down"></b>
 												</a>

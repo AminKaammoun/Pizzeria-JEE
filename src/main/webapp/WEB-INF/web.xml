@@ -35,4 +35,14 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Shop</display-name>
+    <servlet-name>Shop</servlet-name>
+    <servlet-class>controller.Shop</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Shop</servlet-name>
+    <url-pattern>/Shop</url-pattern>
+  </servlet-mapping>
 </web-app>

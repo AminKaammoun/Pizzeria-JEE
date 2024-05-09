@@ -4,12 +4,13 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>login.jsp</welcome-file>
+ 
   </welcome-file-list>
   <servlet>
     <description></description>
     <display-name>Auth</display-name>
     <servlet-name>Auth</servlet-name>
-    <servlet-class>Auth</servlet-class>
+    <servlet-class>controller.Auth</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Auth</servlet-name>
@@ -19,10 +20,20 @@
     <description></description>
     <display-name>Register</display-name>
     <servlet-name>Register</servlet-name>
-    <servlet-class>Register</servlet-class>
+    <servlet-class>controller.Register</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Register</servlet-name>
     <url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Logout</display-name>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>controller.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
 </web-app>

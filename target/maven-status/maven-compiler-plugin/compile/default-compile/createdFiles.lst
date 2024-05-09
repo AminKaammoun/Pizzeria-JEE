@@ -1,0 +1,10 @@
+model\Client.class
+util\HibernateUtil.class
+controller\Logout.class
+model\Role.class
+model\Pizza.class
+dao\ClientDAO.class
+controller\Auth.class
+dao\PizzaDAO.class
+controller\Register.class
+model\User.class

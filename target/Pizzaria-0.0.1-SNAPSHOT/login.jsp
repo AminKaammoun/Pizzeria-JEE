@@ -127,15 +127,15 @@
                         <div class="col-sm-6">
                             <div class="well">
                                 <h2>Login</h2>
-                                <form action="#" method="post" enctype="multipart/form-data">
+                                <form action="Auth" method="get" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label class="control-label" for="input-email">E-Mail Address</label>
-                                        <input type="text" name="email" value="" placeholder="E-Mail Address"
+                                        <input type="text" name="login" value="" placeholder="E-Mail Address"
                                             id="input-email" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="input-password">Password</label>
-                                        <input type="password" name="password" value="" placeholder="Password"
+                                        <input type="password" name="pass" value="" placeholder="Password"
                                             id="input-password" class="form-control">
                                         <a href="#">Forgotten Password</a>
                                     </div>

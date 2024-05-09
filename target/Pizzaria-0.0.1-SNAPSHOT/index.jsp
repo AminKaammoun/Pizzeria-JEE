@@ -9,7 +9,27 @@
 </head>
 <body>
 <%@ include file ="/include/header.jsp" %>
+<%
+boolean loggedIn = false;
 
+HttpSession sessi = request.getSession(false); // false means don't create a new session if it doesn't exist
+
+if (sess != null) {
+    String username = (String) sessi.getAttribute("login");
+    System.out.println("name : " +username);
+	isLoggedIn = true;
+    if (username != null) {
+        // Attribute exists, you can use it
+        // Example: out.println("Welcome back, " + username);
+    } else {
+        // Attribute doesn't exist
+        // Example: out.println("You are not logged in");
+    }
+} else {
+    // Session doesn't exist
+    // Example: out.println("You are not logged in");
+}
+%>
 	<div class="container-full ">
 
 		<div class="themability-banner box-module ">
