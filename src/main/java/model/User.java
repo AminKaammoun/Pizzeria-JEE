@@ -1,17 +1,14 @@
 package model;
 
 import jakarta.persistence.*;
-@Entity
-@Table(name="users")
 
-public class User {
+@MappedSuperclass
+public abstract class User {
 
-	@Id @GeneratedValue
-	@Column(name="id")
-	private int id;
-	
-	@Column(name = "role_id") 
-	private int role;
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "id")
+	protected int id;
 	
 	@Column(name = "name")
 	private String name;
@@ -19,24 +16,17 @@ public class User {
 	@Column(name = "login")
 	private String login;	
 
-	@Column(name = "email")
-	private String email;
-	@Column(name = "tel")
-	private String tel;
+	
 	@Column(name = "password")
 	private String psw;
 
 
 	  public User() {
 	    }
-	public User(int role, String name, String login, String email, String tel, String psw) {
+	public User(String name, String login, String psw) {
 		super();
-		
-		this.role = role;
 		this.name = name;
 		this.login = login;
-		this.email = email;
-		this.tel = tel;
 		this.psw = psw;
 	}
 	
@@ -65,25 +55,7 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	public int getRole() {
-		return role;
-	}
-	public void setRole(int role) {
-		this.role = role;
-	}
-
+	
 
 
 	

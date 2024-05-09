@@ -14,6 +14,7 @@
 		<!-- Activation de la génération automatique du schéma -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- Entités à scanner pour Hibernate -->
-		<mapping class="model.User" />
+		<mapping class="model.Client" />
+		<mapping class="model.Pizza" />
 	</session-factory>
 </hibernate-configuration>

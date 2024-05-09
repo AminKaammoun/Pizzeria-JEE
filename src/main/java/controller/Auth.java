@@ -5,20 +5,24 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.User;
-import dao.UserDAO;
+import model.Client;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
+
+import dao.ClientDAO;
+
 public class Auth extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private UserDAO userDAO; // Dependency Injection of UserDAO
+    private ClientDAO userDAO; // Dependency Injection of UserDAO
 
     public Auth() {
         super();
         // Initialize UserDAO
-        this.userDAO = new UserDAO(); // You might want to use a DI framework for managing dependencies
+        this.userDAO = new ClientDAO(); // You might want to use a DI framework for managing dependencies
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,12 +34,12 @@ public class Auth extends HttpServlet {
 
         try {
             // Authenticate user using UserDAO
-            User user = userDAO.findByLogin(login);
+            Client user = userDAO.findByLogin(login);
 
             if (user != null && user.getPsw().equals(pass.trim())) {
                 // Successful authentication
                 HttpSession session = request.getSession(true);
-                session.setAttribute("email", login);
+                session.setAttribute("email", user.getEmail());
                 session.setAttribute("login", user.getLogin());
                 session.setAttribute("name", user.getName());
                 session.setAttribute("tel", user.getTel());
@@ -46,9 +50,14 @@ public class Auth extends HttpServlet {
                 out.print("User not found or wrong password");
             }
         } catch (Exception e) {
+            // Handle authentication error
+            out.print("Error authenticating user: " + e.getMessage());
             throw new ServletException("Error authenticating user", e);
+        } finally {
+            out.close(); // Close PrintWriter
         }
     }
+
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

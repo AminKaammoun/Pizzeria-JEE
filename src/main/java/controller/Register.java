@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transaction;
+import model.Client;
 import model.Role;
 import model.User;
 import util.HibernateUtil;
@@ -21,7 +22,7 @@ import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 
-import dao.UserDAO;
+import dao.ClientDAO;
 
 /**
  * Servlet implementation class Register
@@ -30,7 +31,7 @@ import dao.UserDAO;
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private UserDAO userDao;
+	private ClientDAO userDao;
     
     /**
      * @see HttpServlet#HttpServlet()
@@ -39,7 +40,7 @@ public class Register extends HttpServlet {
 
 	public Register() {
 		super();
-		   userDao=new UserDAO();
+		   userDao=new ClientDAO();
 	} 
 
 	/**
@@ -48,6 +49,18 @@ public class Register extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		  try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+	            Transaction transaction = (Transaction) session.beginTransaction();
+
+	            // Perform database operations (e.g., save, update, query)
+
+	            transaction.commit();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    
+		
 		PrintWriter out = response.getWriter();
 		String name = request.getParameter("name");
 		String login = request.getParameter("login");
@@ -60,12 +73,12 @@ public class Register extends HttpServlet {
 		Session session = sessionFactory.openSession();
 		org.hibernate.Transaction tx = null;
 		//Role r = new Role("CLIENT");
-		User u = new User(1,name, login, email, tel, psw);
+		Client u = new Client(name, login, email, tel, psw);
 		userDao.create(u);
 
 	}
 
-	/**
+	/** 
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
