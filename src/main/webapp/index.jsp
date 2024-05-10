@@ -12,10 +12,9 @@
 <%
 boolean loggedIn = false;
 
-HttpSession sessi = request.getSession(false); // false means don't create a new session if it doesn't exist
 
 if (sess != null) {
-    String username = (String) sessi.getAttribute("login");
+    String username = (String) sess.getAttribute("login");
     System.out.println("name : " +username);
 	isLoggedIn = true;
     if (username != null) {

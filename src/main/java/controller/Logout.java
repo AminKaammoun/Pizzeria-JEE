@@ -30,9 +30,10 @@ public class Logout extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession(false); // Don't create a new session if it doesn't exist
 
-        if (session != null) {
-            session.invalidate(); // Invalidate the session
-        }
+       
+            //session.invalidate();
+            session.setAttribute("login", null);
+        
 
         // Redirect the user to the login page or any other appropriate page
         response.sendRedirect(request.getContextPath() + "/login.jsp");

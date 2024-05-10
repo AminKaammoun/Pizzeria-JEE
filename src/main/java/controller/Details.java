@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,12 +24,14 @@ public class Details extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private PizzaDAO pizzaDao;
+	private Pizza pizza;
     /**
      * @see HttpServlet#HttpServlet()
      */
     public Details() {
         super();
         pizzaDao = new PizzaDAO();
+       
     }
 
 	/**
@@ -50,14 +53,11 @@ public class Details extends HttpServlet {
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		String size = request.getParameter("size");
 		 int id = Integer.parseInt(request.getParameter("id"));
-		
-		 double itemPrice = Double.parseDouble(request.getParameter("price"));
+		 
+		 pizza = pizzaDao.findById(id);
+		 double itemPrice = pizza.getSizeToPrice().get(size).doubleValue();
 		
 	
-		// System.out.println("id : " + id);
-		 //System.out.println("itemPrice : " + itemPrice);
-		// System.out.println("size : " + size);
-		// System.out.println("quantity : " + quantity);
 		 HttpSession session = request.getSession(true); 
 		 
 		 
@@ -71,29 +71,10 @@ public class Details extends HttpServlet {
 		    CartItem cartItem = new CartItem(pizzaDao.findById(id),itemPrice,quantity,size);
 		    cart.put(id+"", cartItem);
 		    
-		    if (cart != null) {
-		        // Iterate over map entries using entrySet()
-		        for (Map.Entry<String, CartItem> entry : cart.entrySet()) {
-		            String itemId = entry.getKey();       // Get the key (item ID)
-		            CartItem cartItm = entry.getValue(); // Get the value (CartItem)
-
-		            // Access and process the cart item
-		            System.out.println("Item ID: " + itemId);
-		            System.out.println("Cart Item: " + cartItm);
-		            
-		            // You can access specific properties of CartItem if needed
-		            System.out.println("Quantity: " + cartItm.getQuantity());
-		            System.out.println("Item Price: " + cartItm.getItemPrice());
-		            System.out.println("Size: " + cartItm.getSize());
-
-		            // Perform other operations as needed
-		        }
-		    } else {
-		        System.out.println("Cart is empty or not initialized.");
-		    }
+	
 
 		    // Redirect to a page confirming the item was added to the cart
 		    response.sendRedirect("cart.jsp");
-	}
+	} 
 
 }

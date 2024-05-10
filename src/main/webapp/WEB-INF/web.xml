@@ -37,16 +37,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>Shop</display-name>
-    <servlet-name>Shop</servlet-name>
-    <servlet-class>controller.Shop</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Shop</servlet-name>
-    <url-pattern>/Shop</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Details</display-name>
     <servlet-name>Details</servlet-name>
     <servlet-class>controller.Details</servlet-class>
@@ -54,5 +44,15 @@
   <servlet-mapping>
     <servlet-name>Details</servlet-name>
     <url-pattern>/Details</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Command</display-name>
+    <servlet-name>Command</servlet-name>
+    <servlet-class>controller.Command</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Command</servlet-name>
+    <url-pattern>/Command</url-pattern>
   </servlet-mapping>
 </web-app>
