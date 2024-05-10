@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transaction;
 import model.Client;
-import model.Role;
+
 import model.User;
 import util.HibernateUtil;
 

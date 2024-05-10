@@ -331,13 +331,13 @@
 										</div>
 										<div class="price-cartbtn clearfix">
 											<p class="price">
-												$19.99
+												 <%= pizza.getSizeToPrice().get("Medium") %> DT
 												<span class="price-tax">Ex Tax: $279.99</span>
 											</p>
 											<p class="description"><%= pizza.getDescription() %></p>
 											<button class="addcart" type="button"><i
 													class="icon-shopping-bag hidden"></i>
-												<span class=""><a href="shopping-cart.html">Order Now</a>
+												<a href="details.jsp?pizzaId=<%= pizza.getId() %>">Order Now</a>
 												</span></button>
 										</div>
 									</div>
@@ -358,7 +358,7 @@
 		</div>
 	</div>
 
-
+<%@ include file ="/include/js.jsp" %>
 <%@ include file ="/include/footer.jsp" %>
 </body>
 </html>

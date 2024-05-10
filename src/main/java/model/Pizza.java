@@ -1,5 +1,9 @@
 package model;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -22,7 +26,8 @@ public class Pizza {
 	@Column(name = "image") 
 	private String image;
 	
-	
+	@ElementCollection(fetch = FetchType.EAGER)
+	private Map<String, BigDecimal> sizeToPrice = new HashMap<>();
 
 	public int getId() {
 		return id;
@@ -54,6 +59,14 @@ public class Pizza {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public Map<String, BigDecimal> getSizeToPrice() {
+		return sizeToPrice;
+	}
+
+	public void setSizeToPrice(Map<String, BigDecimal> sizeToPrice) {
+		this.sizeToPrice = sizeToPrice;
 	}
 
 
