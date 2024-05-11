@@ -1032,6 +1032,19 @@ ul.themability_megamenu>li span.labelhot:after {
     margin-top: 5px;
 }
 
+.delete-btn {
+    background-color: #ff4d4d; /* Red background color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
 #cart .dropdown-menu table td.product-cart-close,
 #cart .dropdown-menu table td.voucher-close {
     position: absolute;

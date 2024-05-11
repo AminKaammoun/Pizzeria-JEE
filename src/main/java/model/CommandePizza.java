@@ -25,14 +25,22 @@ public class CommandePizza {
 	private int quantity;
 	
 
+	@Column(name = "size")
+	private String size;
+	
+	@Column(name ="price")
+	private double price;
+	
 
 	public CommandePizza() {
 	}
 
-	public CommandePizza(Commande commande, Pizza pizza, int quantity) {
+	public CommandePizza(Commande commande, Pizza pizza, int quantity, String size, double price) {
 		this.commande = commande;
 		this.pizza = pizza;
 		this.quantity = quantity;
+		this.size = size;
+		this.price = price;
 		
 	}
 
@@ -67,4 +75,22 @@ public class CommandePizza {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	
 }

@@ -1,8 +1,8 @@
 
 
 <%@ page import="model.Pizza"%>
-	<%@ page import="dao.PizzaDAO"%>
-	<%
+<%@ page import="dao.PizzaDAO"%>
+<%
 	java.util.Map<String, main.CartItem> cart = (java.util.Map<String, main.CartItem>) session.getAttribute("cart");
 		double total = 0.00;
 	%>
@@ -837,35 +837,48 @@ if (sess != null) {
 						<button type="button" data-toggle="dropdown"
 							data-loading-text="<i class='fa fa-spinner fa-spin' aria-hidden='true'></i>"
 							class="btn btn-inverse btn-block btn-lg dropdown-toggle">
-							<i class="icon-bag"></i> <span id="cart-total">2<span
+							<i class="icon-bag"></i> 
+							
+							<% if (cart != null){ %>
+							<span id="cart-total"><%=cart.size() %>
+							<span
 								class="hidden">item(s) - $0.00</span></span>
+								<%}else{%>
+								
+								<span id="cart-total">0
+							<span
+								class="hidden">item(s) - $0.00</span></span>
+								<%} %>
 						</button>
 						<ul class="dropdown-menu pull-right header-cart-toggle">
 							<li class="cart-content-product">
 								<table class="table table-striped">
 									<tbody>
-										
-										
-											<%
+
+
+										<%
 																															if(cart != null){
 																																						for (java.util.Map.Entry<String, main.CartItem> entry : cart.entrySet()) {
 																																							main.CartItem cartItem = entry.getValue();
 																																							double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
 																																							double totalPrice = unitPrice * cartItem.getQuantity();
 																																							total += totalPrice;
-																															%>
-										
+									%>
+
 										<tr>
 											<td class="text-center product-cart-thumb"><a href="#">
-													<img src="assets/images/products/<%=cartItem.getPizza().getImage()%>"
+													<img
+													src="assets/images/products/<%=cartItem.getPizza().getImage()%>"
 													alt="veggie delight" title="veggie delight"
 													class="img-thumbnail">
 											</a></td>
 											<td class="text-left product-cart-details"><a href="#"
-												class="product-item-name"><%=cartItem.getPizza().getName()%></a> <br>
+												class="product-item-name"><%=cartItem.getPizza().getName()%></a>
+												<br>
 												<div class="product-cart-info">
-													<span class="product-cart-qty"><%=cartItem.getQuantity()%> x </span> <span
-														class="product-cart-price"><%=unitPrice%> DT</span>
+													<span class="product-cart-qty"><%=cartItem.getQuantity()%>
+														x </span> <span class="product-cart-price"><%=unitPrice%>
+														DT</span>
 												</div></td>
 											<td class="text-center product-cart-close">
 												<button type="button" title="Remove"
@@ -874,11 +887,11 @@ if (sess != null) {
 												</button>
 											</td>
 										</tr>
-										
+
 										<%}}%>
-										
-										
-								
+
+
+
 									</tbody>
 								</table>
 							</li>
@@ -895,7 +908,8 @@ if (sess != null) {
 												<td class="text-right">-0.00 DT</td>
 											</tr>
 											<tr>
-												<td class="text-left"><strong>Discount Voucher (0%)</strong></td>
+												<td class="text-left"><strong>Discount Voucher
+														(0%)</strong></td>
 												<td class="text-right">-0.00 DT</td>
 											</tr>
 											<tr>
@@ -904,11 +918,10 @@ if (sess != null) {
 											</tr>
 										</tbody>
 									</table>
-									
-									
+
+
 									<p class="text-right product-cart-button">
-										<a href="cart.jsp"
-											class="btn cart-btn addtocart-btn"><i
+										<a href="cart.jsp" class="btn cart-btn addtocart-btn"><i
 											class="fa fa-shopping-cart hidden"></i>View Cart</a>
 										&nbsp;&nbsp;&nbsp;<a href="cart.jsp"
 											class="btn cart-btn checkout-btn"><i

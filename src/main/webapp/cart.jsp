@@ -5,6 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <%@ include file="/include/css.jsp"%>
 </head>
 <body>
@@ -231,6 +233,7 @@
 										<td class="text-left">Quantity</td>
 										<td class="text-right">Unit Price</td>
 										<td class="text-right">Total</td>
+										<td class="text-center">Action</td>
 									</tr>
 								</thead>
 								<tbody>
@@ -267,13 +270,13 @@
 										</td>
 										<td class="text-right"><%=unitPrice%> DT</td>
 										<td class="text-right"><%=totalPrice%> DT</td>
+										<td class="text-center"><button type="button" data-cart-item-id="<%=entry.getKey()%>" class="delete-btn"><i class="fas fa-trash-alt"></i></button></td>
 									</tr>
+
+
 									<%
-									}
-									}else{
-										%>
-									<p>Shopping cart is empty.</p>
-									<%}%>
+									}%>
+
 								</tbody>
 							</table>
 						</div>
@@ -302,7 +305,6 @@
 								</table>
 							</div>
 						</div>
-						
 						<div class="buttons clearfix">
 							<div class="pull-left">
 								<a href="shop.jsp" class="btn btn-default">Continue Shopping</a>
@@ -316,8 +318,60 @@
 			</div>
 		</div>
 	</div>
+	<% 
+					
+								
+								
+					
+					}else{
+										%>
+	<center>
+		<h3>Shopping cart is empty.</h3>
+		<img src="assets/images/cart.png" alt="veggie delight"
+			title="veggie delight">
+	</center>
+
+	<div class="buttons clearfix">
+		<div class="pull-left">
+			<a href="shop.jsp" class="btn btn-default">Go Shopping</a>
+		</div>
+
+		</tbody>
+		</table>
+	</div>
+	<%}%>
+
+	</form>
+	</div>
+	</div>
+	</div>
+	</div>
 
 	<%@ include file="/include/footer.jsp"%>
 	<%@ include file="/include/js.jsp"%>
 </body>
+
+<script>
+    $(document).ready(function() {
+        $('.delete-btn').click(function() {
+            var cartItemId = $(this).data('cart-item-id'); 
+            
+            
+            $.ajax({
+                type: 'POST',
+                url: 'DeleteCartItem', 
+                data: { cartItemId: cartItemId }, 
+                success: function(response) {
+                    
+                    location.reload(); 
+                },
+                error: function(xhr, status, error) {
+                  
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
+
 </html>

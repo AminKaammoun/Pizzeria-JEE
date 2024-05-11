@@ -74,7 +74,7 @@ public class SubmitOrder extends HttpServlet {
             Pizza pizza = pizzaDAO.findById(pizzaId);
        
       
-            CommandePizza commandePizza = new CommandePizza(commande, pizza, cartItem.getQuantity());
+            CommandePizza commandePizza = new CommandePizza(commande, pizza, cartItem.getQuantity(), cartItem.getSize(), cartItem.getItemPrice());
             commandePizzaDAO.create(commandePizza); 
         }
 
