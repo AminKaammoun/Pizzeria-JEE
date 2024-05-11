@@ -16,5 +16,7 @@
 		<!-- Entités à scanner pour Hibernate -->
 		<mapping class="model.Client" />
 		<mapping class="model.Pizza" />
+		<mapping class="model.Commande" />
+		<mapping class="model.CommandePizza" />
 	</session-factory>
 </hibernate-configuration>

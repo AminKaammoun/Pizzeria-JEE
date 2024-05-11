@@ -846,7 +846,7 @@ if (sess != null) {
 									<tbody>
 										
 										
-											<%
+											<%if(cart != null){
 									for (java.util.Map.Entry<String, model.CartItem> entry : cart.entrySet()) {
 										model.CartItem cartItem = entry.getValue();
 										double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
@@ -874,7 +874,7 @@ if (sess != null) {
 											</td>
 										</tr>
 										
-										<%}%>
+										<%}}%>
 										
 										
 								

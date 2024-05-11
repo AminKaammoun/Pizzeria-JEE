@@ -55,4 +55,14 @@
     <servlet-name>Command</servlet-name>
     <url-pattern>/Command</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SubmitOrder</display-name>
+    <servlet-name>SubmitOrder</servlet-name>
+    <servlet-class>controller.SubmitOrder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitOrder</servlet-name>
+    <url-pattern>/SubmitOrder</url-pattern>
+  </servlet-mapping>
 </web-app>

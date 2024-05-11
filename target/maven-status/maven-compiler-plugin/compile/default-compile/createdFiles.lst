@@ -1,7 +1,11 @@
+model\Commande.class
+model\CartItem.class
 model\Client.class
-util\HibernateUtil.class
 controller\Logout.class
-model\Role.class
+controller\Command.class
+util\HibernateUtil.class
+controller\Details.class
+model\CommandePizza.class
 model\Pizza.class
 dao\ClientDAO.class
 controller\Auth.class

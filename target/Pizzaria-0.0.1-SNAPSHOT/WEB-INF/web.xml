@@ -4,7 +4,6 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>login.jsp</welcome-file>
- 
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -35,5 +34,25 @@
   <servlet-mapping>
     <servlet-name>Logout</servlet-name>
     <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Details</display-name>
+    <servlet-name>Details</servlet-name>
+    <servlet-class>controller.Details</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Details</servlet-name>
+    <url-pattern>/Details</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Command</display-name>
+    <servlet-name>Command</servlet-name>
+    <servlet-class>controller.Command</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Command</servlet-name>
+    <url-pattern>/Command</url-pattern>
   </servlet-mapping>
 </web-app>

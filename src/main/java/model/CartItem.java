@@ -6,7 +6,7 @@ public class CartItem {
 	private Pizza pizza;
 	private Double itemPrice;
 	private int quantity;
-	private String Size;
+	private String size;
 	
 	
 	public CartItem() {
@@ -18,7 +18,7 @@ public class CartItem {
 		this.pizza = pizza;
 		this.itemPrice = itemPrice;
 		this.quantity = quantity;
-		Size = size;
+		this.size = size;
 	}
 	
 	public Pizza getPizza() {
@@ -40,10 +40,10 @@ public class CartItem {
 		this.quantity = quantity;
 	}
 	public String getSize() {
-		return Size;
+		return size;
 	}
 	public void setSize(String size) {
-		Size = size;
+		this.size = size;
 	}
 	
 	

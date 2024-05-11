@@ -1,8 +1,17 @@
 
+
+<%@ page import="model.Pizza"%>
+	<%@ page import="dao.PizzaDAO"%>
+	<%
+	java.util.Map<String, model.CartItem> cart = (java.util.Map<String, model.CartItem>) session.getAttribute("cart");
+	double total = 0.00;
+	%>
+
+
 <%
 boolean isLoggedIn = false;
 
-HttpSession sess = request.getSession(false); // false means don't create a new session if it doesn't exist
+HttpSession sess = request.getSession(false); 
 
 if (sess != null) {
 	String username = (String) sess.getAttribute("login");
@@ -27,7 +36,7 @@ if (sess != null) {
 		<div class="header-inner">
 			<div class="header-left">
 				<div id="logo">
-					<a href="index-2.html"> <img src="assets/images/logo-pizza.png"
+					<a href="index.jsp"> <img src="assets/images/logo-pizza.png"
 						title="Your Store" alt="Your Store" class="img-responsive">
 					</a>
 				</div>
@@ -56,8 +65,7 @@ if (sess != null) {
 												data-transition="slide" data-animationtime="500">
 
 												<li class="home current-active active-first"><a
-													href="index-2.html"> <span><strong>
-																Home </strong></span>
+													href="index.jsp"> <span><strong> Home </strong></span>
 												</a></li>
 
 												<li class="with-sub-menu click">
@@ -836,17 +844,27 @@ if (sess != null) {
 							<li class="cart-content-product">
 								<table class="table table-striped">
 									<tbody>
+										
+										
+											<%if(cart != null){
+									for (java.util.Map.Entry<String, model.CartItem> entry : cart.entrySet()) {
+										model.CartItem cartItem = entry.getValue();
+										double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
+										double totalPrice = unitPrice * cartItem.getQuantity();
+										total += totalPrice;
+									%>
+										
 										<tr>
 											<td class="text-center product-cart-thumb"><a href="#">
-													<img src="assets/images/products/11.jpg"
+													<img src="assets/images/products/<%=cartItem.getPizza().getImage()%>"
 													alt="veggie delight" title="veggie delight"
 													class="img-thumbnail">
 											</a></td>
 											<td class="text-left product-cart-details"><a href="#"
-												class="product-item-name">Veggie Delight</a> <br>
+												class="product-item-name"><%=cartItem.getPizza().getName()%></a> <br>
 												<div class="product-cart-info">
-													<span class="product-cart-qty">1 x </span> <span
-														class="product-cart-price">$122.00</span>
+													<span class="product-cart-qty"><%=cartItem.getQuantity()%> x </span> <span
+														class="product-cart-price"><%=unitPrice%> DT</span>
 												</div></td>
 											<td class="text-center product-cart-close">
 												<button type="button" title="Remove"
@@ -855,24 +873,11 @@ if (sess != null) {
 												</button>
 											</td>
 										</tr>
-										<tr>
-											<td class="text-center product-cart-thumb"><a href="#">
-													<img src="assets/images/products/15.jpg" alt="PeppiPizza"
-													title="PeppiPizza" class="img-thumbnail">
-											</a></td>
-											<td class="text-left product-cart-details"><a href="#"
-												class="product-item-name">PeppiPizza</a>
-												<div class="product-cart-info">
-													<span class="product-cart-qty">1 x </span> <span
-														class="product-cart-price">$241.99</span>
-												</div></td>
-											<td class="text-center product-cart-close">
-												<button type="button" title="Remove"
-													class="btn btn-danger btn-xs">
-													<i class="fa fa-times"></i>
-												</button>
-											</td>
-										</tr>
+										
+										<%}}%>
+										
+										
+								
 									</tbody>
 								</table>
 							</li>
@@ -882,27 +887,29 @@ if (sess != null) {
 										<tbody>
 											<tr>
 												<td class="text-left"><strong>Sub-Total</strong></td>
-												<td class="text-right">$299.99</td>
+												<td class="text-right"><%=total%> DT</td>
 											</tr>
 											<tr>
-												<td class="text-left"><strong>Eco Tax (-2.00)</strong></td>
-												<td class="text-right">$4.00</td>
+												<td class="text-left"><strong>Sale (0%)</strong></td>
+												<td class="text-right">-0.00 DT</td>
 											</tr>
 											<tr>
-												<td class="text-left"><strong>VAT (20%)</strong></td>
-												<td class="text-right">$60.00</td>
+												<td class="text-left"><strong>Discount Voucher (0%)</strong></td>
+												<td class="text-right">-0.00 DT</td>
 											</tr>
 											<tr>
 												<td class="text-left"><strong>Total</strong></td>
-												<td class="text-right">$363.99</td>
+												<td class="text-right"><%=total%> DT</td>
 											</tr>
 										</tbody>
 									</table>
+									
+									
 									<p class="text-right product-cart-button">
-										<a href="shopping-cart.html"
+										<a href="cart.jsp"
 											class="btn cart-btn addtocart-btn"><i
 											class="fa fa-shopping-cart hidden"></i>View Cart</a>
-										&nbsp;&nbsp;&nbsp;<a href="shopping-cart.html"
+										&nbsp;&nbsp;&nbsp;<a href="cart.jsp"
 											class="btn cart-btn checkout-btn"><i
 											class="fa fa-share hidden"></i>Checkout</a>
 									</p>
@@ -925,7 +932,7 @@ if (sess != null) {
 						<%
 				}else{
 				%>
-						
+
 						<li><a href="/Pizzaria/login.jsp">Register</a></li>
 						<li><a href="/Pizzaria/login.jsp">Login</a></li>
 						<%} %>

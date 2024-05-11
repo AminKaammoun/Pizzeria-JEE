@@ -13,6 +13,7 @@ public class Pizza {
 	
 	
 	@Id 
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name="id")
 	private int id;
 
@@ -28,6 +29,20 @@ public class Pizza {
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Map<String, BigDecimal> sizeToPrice = new HashMap<>();
+
+	
+	
+	public Pizza() {
+		
+	}
+	
+	public Pizza(String name, String description, String image, Map<String, BigDecimal> sizeToPrice) {
+	
+		this.name = name;
+		this.description = description;
+		this.image = image;
+		this.sizeToPrice = sizeToPrice;
+	}
 
 	public int getId() {
 		return id;
