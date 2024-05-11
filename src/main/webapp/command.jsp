@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <%@ include file="/include/css.jsp"%>
 </head>
 <body>
@@ -64,7 +65,7 @@
 											Name</label>
 										<div class="col-sm-10">
 											<input type="text" id="name" class="form-control"
-												name="name" required>
+												name="name" required value="<%=sess.getAttribute("name") %>" readonly>
 										</div>
 									</div>
 									<div class="form-group required row">
@@ -72,14 +73,14 @@
 											Address</label>
 										<div class="col-sm-10">
 											<input type="text" id="email" class="form-control"
-												name="email" required>
+												name="email" required value="<%=sess.getAttribute("email") %>" readonly>
 										</div>
-									</div>
+									</div> 
 									<div class="form-group required row">
 										<label class="col-sm-2 control-label" for="address">Address</label>
 										<div class="col-sm-10">
 											<input type="text" id="address" class="form-control"
-												name="address" required>
+												name="address" required value="<%=sess.getAttribute("address") %>">
 										</div>
 									</div>
 									<div class="form-group required row">
@@ -87,7 +88,7 @@
 											Number</label>
 										<div class="col-sm-10">
 											<input type="text" id="phone" class="form-control"
-												name="phone" required>
+												name="phone" required value="<%=sess.getAttribute("tel") %>" readonly>
 										</div>
 									</div>
 									<div class="form-group required row">
@@ -106,6 +107,7 @@
 									</div>
 								</fieldset>
 								 <input type="hidden" name="total" value="<%=total%>">
+								  <input type="hidden" name="points" value="<%=points%>">
 								<div class="buttons clearfix">
 									<div class="pull-right">
 										<input class="btn btn-primary" type="submit" value="Submit">

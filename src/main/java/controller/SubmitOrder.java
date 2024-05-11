@@ -55,11 +55,20 @@ public class SubmitOrder extends HttpServlet {
         String address = request.getParameter("address");
         String desc = request.getParameter("enquiry");
         String phone = request.getParameter("phone");
+        int points = Integer.parseInt(request.getParameter("points"));
         double total = Double.parseDouble(request.getParameter("total"));
+        
+        
+       Client c = clientDAO.findByLogin(email);
+       c.setAdresse(address);
+       c.setPtDeFidelite(c.getPtDeFidelite()+points);
 
+     
+       clientDAO.update(c);
+       
         System.out.println("Total amount received: " + total);
         
-        Commande commande = new Commande(total, LocalDate.now(), null, clientDAO.findByLogin(email));
+        Commande commande = new Commande(total,address, LocalDate.now(), null, c);
         commandeDAO.create(commande); 
 
       

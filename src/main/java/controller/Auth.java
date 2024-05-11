@@ -44,6 +44,7 @@ public class Auth extends HttpServlet {
                 session.setAttribute("name", user.getName());
                 session.setAttribute("tel", user.getTel());
                 session.setAttribute("psw", user.getPsw());
+                session.setAttribute("Address", user.getAdresse());
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
             } else {
                 // Authentication failed

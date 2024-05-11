@@ -56,4 +56,20 @@ public class ClientDAO {
 			session.close();
 		}
 	}
+	
+	public void update(Client client) {
+	    Session session = sessionFactory.openSession();
+	    Transaction tx = null;
+	    try {
+	        tx = session.beginTransaction();
+	        session.merge(client); // Use merge instead of update
+	        tx.commit();
+	    } catch (Exception e) {
+	        if (tx != null) tx.rollback();
+	        throw e;
+	    } finally {
+	        session.close();
+	    }
+	}
+
 }

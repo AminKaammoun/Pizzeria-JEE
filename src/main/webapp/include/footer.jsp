@@ -12,25 +12,20 @@
 								<li>
 									<div class="site">
 										<div class="contact_title"><i class="fa-solid fa-location-dot"></i></div>
-										<div class="contact_site">National park,d1 588436,United States</div>
+										<div class="contact_site">Cité hay el ons, route tunis km 10</div>
 									</div>
 								</li>
 								<li>
 									<div class="phone">
 										<div class="contact_title"><i class="fa fa-phone"></i></div>
-										<div class="contact_site">+91 123 456 789</div>
+										<div class="contact_site">+216 29 528 193</div>
 									</div>
 								</li>
-								<li>
-									<div class="fax">
-										<div class="contact_title"><i class="fa fa-fax"></i></div>
-										<div class="contact_site">0123-456-789</div>
-									</div>
-								</li>
+								
 								<li>
 									<div class="email">
 										<div class="contact_title"><i class="fa fa-envelope"></i></div>
-										<div class="contact_site"><a href="mailto:info@Yourstore.com" class="contact_site">demo@Yourstore.com</a></div>
+										<div class="contact_site"><a href="mailto:info@Yourstore.com" class="contact_site">pizza@gmail.com</a></div>
 									</div>
 								</li>
 							</ul>
@@ -39,25 +34,23 @@
 					<div class="col-md-3">
 						<h5 class="toggled">Quick links</h5>
 						<ul class="list-unstyled">
-							<li><a href="index-2.html" class="contact_site">Home</a></li>
-							<li><a href="about.html" class="contact_site">About
+							<li><a href="index.jsp" class="contact_site">Home</a></li>
+							<li><a href="#" class="contact_site">About
 									Us</a></li>
-							<li><a href="contact.html" class="contact_site">Contact
+							<li><a href="#" class="contact_site">Contact
 									Us</a></li>
-							<li><a href="shop.html" class="contact_site">Shop</a></li>
+							<li><a href="shop.jsp" class="contact_site">Shop</a></li>
 							<li><a href="#">Terms & Conditions</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3">
 						<h5 class="toggled">Extras</h5>
 						<ul class="list-unstyled">
-							<li><a href="delivery-information.html" class="contact_site">Delivery
+							<li><a href="#" class="contact_site">Delivery
 									Information</a></li>
-							<li><a href="privacy-policy.html" class="contact_site">Privacy
-									Policy</a></li>
-							<li><a href="site-map.html">Site
-									Map</a></li>
-							<li><a href="my-account.html">My Account</a></li>
+						
+							
+							<li><a href="my_account.jsp">My Account</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3">
@@ -87,6 +80,6 @@
 				</div>
 			</div>
 			<!-- <hr> -->
-			<p class="copyright"><a href="#"></a>© 2023 Pizzaking - All Rights Reserved.</p>
+			<p class="copyright"><a href="#"></a>© 2024 IIT Pizza - All Rights Reserved.</p>
 		</div>
 	</footer>

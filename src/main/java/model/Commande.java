@@ -37,7 +37,9 @@ public class Commande {
 	@Column(name = "status")
 	private OrderStatus status;
 
-
+	@Column(name = "address")
+	private String address;
+	
 	@Column(name= "createdDate")
 	private LocalDate dateCreation;
 	
@@ -59,9 +61,10 @@ public class Commande {
     	
     }
     
-	public Commande(double amount, LocalDate dateCreation, LocalDate dateDelivery, Client client) {
+	public Commande(double amount,String address, LocalDate dateCreation, LocalDate dateDelivery, Client client) {
 	
 		this.amount = amount;
+		this.address = address;
 		this.dateCreation = dateCreation;
 		this.dateDelivery = dateDelivery;
 		this.client = client;

@@ -5,7 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Cart</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <%@ include file="/include/css.jsp"%>
 </head>
@@ -219,134 +220,125 @@
 						</div>
 					</div>
 					<%
-					if (cart != null) {
-					%>
-					<h1 class="cart-title">Shopping Cart &nbsp;(0.00kg)</h1>
-					<form action="Command" method="post" enctype="multipart/form-data">
-						<div class="table-responsive">
-							<table class="table table-bordered">
-								<thead>
-									<tr>
-										<td class="text-center">Image</td>
-										<td class="text-left">Product Name</td>
-										<td class="text-left">Size</td>
-										<td class="text-left">Quantity</td>
-										<td class="text-right">Unit Price</td>
-										<td class="text-right">Total</td>
-										<td class="text-center">Action</td>
-									</tr>
-								</thead>
-								<tbody>
-									<%
-									for (java.util.Map.Entry<String, main.CartItem> entry : cart.entrySet()) {
-																		main.CartItem cartItem = entry.getValue();
-																		double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
-																		double totalPrice = unitPrice * cartItem.getQuantity();
-									%>
-									<tr>
-										<td class="text-center"><a href="#"> <img
-												src="assets/images/products/<%=cartItem.getPizza().getImage()%>"
-												alt="PeppiPizza" title="PeppiPizza"
-												class="img-thumbnail checkout-img">
-										</a></td>
-										<td class="text-left"><a href="#"><%=cartItem.getPizza().getName()%></a>
-											<br> <small>Reward Points: <%=cartItem.getQuantity() * 10%></small>
-										</td>
-										<td class="text-left"><%=cartItem.getSize()%></td>
-										<td class="text-left">
-											<div class="input-group btn-block">
-												<div class="product-btn-quantity">
-													<button class="minus">
-														<i class="fa fa-minus"></i>
-													</button>
-													<input type="text" name="quantity"
-														value="<%=cartItem.getQuantity()%>" size="2"
-														id="input-quantity" class="form-control">
-													<button class="plus">
-														<i class="fa fa-plus"></i>
-													</button>
-												</div>
-											</div>
-										</td>
-										<td class="text-right"><%=unitPrice%> DT</td>
-										<td class="text-right"><%=totalPrice%> DT</td>
-										<td class="text-center"><button type="button" data-cart-item-id="<%=entry.getKey()%>" class="delete-btn"><i class="fas fa-trash-alt"></i></button></td>
-									</tr>
-
-
-									<%
-									}%>
-
-								</tbody>
-							</table>
-						</div>
-						<div class="row">
-							<div class="col-sm-4 col-sm-offset-8">
+    if (cart != null && !cart.isEmpty()) {
+    
+%>
+					<div class="cart-container">
+						<h1 class="cart-title">Shopping Cart &nbsp;(0.00kg)</h1>
+						<form action="Command" method="post" enctype="multipart/form-data">
+							<div class="table-responsive">
 								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th class="text-center">Image</th>
+											<th class="text-left">Product Name</th>
+											<th class="text-left">Size</th>
+											<th class="text-left">Quantity</th>
+											<th class="text-right">Unit Price</th>
+											<th class="text-right">Total</th>
+											<th class="text-center">Action</th>
+										</tr>
+									</thead>
 									<tbody>
+										<% for (java.util.Map.Entry<String, main.CartItem> entry : cart.entrySet()) {
+                            main.CartItem cartItem = entry.getValue();
+                            double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
+                            double totalPrice = unitPrice * cartItem.getQuantity();
+                           
+                        %>
 										<tr>
-											<td class="text-left cart-total-title">Sub-Total:</td>
-											<td class="text-right cart-total-price"><%=total%> DT</td>
+											<td class="text-center"><img
+												src="assets/images/products/<%=cartItem.getPizza().getImage()%>"
+												alt="<%=cartItem.getPizza().getName()%>"
+												class="img-thumbnail checkout-img"></td>
+											<td class="text-left"><%=cartItem.getPizza().getName()%><br>
+											<small>Reward Points: <%=cartItem.getQuantity() * 10%></small></td>
+											<td class="text-left"><%=cartItem.getSize()%></td>
+											<td class="text-left">
+												<div class="input-group btn-block">
+													<div class="product-btn-quantity">
+														<button class="minus">
+															<i class="fa fa-minus"></i>
+														</button>
+														<input type="text" name="quantity"
+															value="<%=cartItem.getQuantity()%>" size="2"
+															id="input-quantity" class="form-control">
+														<button class="plus">
+															<i class="fa fa-plus"></i>
+														</button>
+													</div>
+												</div>
+											</td>
+											<td class="text-right"><%=unitPrice%> DT</td>
+											<td class="text-right"><%=totalPrice%> DT</td>
+											<td class="text-center"><button type="button"
+													data-cart-item-id="<%=entry.getKey()%>" class="delete-btn">
+													<i class="fas fa-trash-alt"></i>
+												</button></td>
 										</tr>
-										<tr>
-											<td class="text-left cart-total-title">Sale (0%):</td>
-											<td class="text-right cart-total-price">-0.00 DT</td>
-										</tr>
-										<tr>
-											<td class="text-left cart-total-title">Discount Voucher
-												(0%):</td>
-											<td class="text-right cart-total-price">-0.00 DT</td>
-										</tr>
-										<tr>
-											<td class="text-left cart-total-title">Total:</td>
-											<td class="text-right cart-total-price"><%=total%> DT</td>
-										</tr>
+										<% } %>
 									</tbody>
 								</table>
 							</div>
-						</div>
+							<div class="row">
+								<div class="col-sm-4 col-sm-offset-8">
+									<table class="table table-bordered">
+										<tbody>
+											<tr>
+												<td class="text-left cart-total-title">Sub-Total:</td>
+												<td class="text-right cart-total-price"><%=total%> DT</td>
+											</tr>
+											<tr>
+												<td class="text-left cart-total-title">Sale (0%):</td>
+												<td class="text-right cart-total-price">-0.00 DT</td>
+											</tr>
+											<tr>
+												<td class="text-left cart-total-title">Discount Voucher
+													(0%):</td>
+												<td class="text-right cart-total-price">-0.00 DT</td>
+											</tr>
+											<tr>
+												<td class="text-left cart-total-title">Total:</td>
+												<td class="text-right cart-total-price"><%=total%> DT</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="buttons clearfix">
+								<div class="pull-left">
+									<a href="shop.jsp" class="btn btn-default">Continue
+										Shopping</a>
+								</div>
+								<div class="pull-right">
+									<input type="submit" class="btn btn-primary" value="Checkout">
+								</div>
+							</div>
+						</form>
+					</div>
+					<%
+    } else {
+%>
+					<div class="empty-cart">
+						<center>
+							<h3>Shopping cart is empty.</h3>
+							<img src="assets/images/cart.png" alt="Veggie Delight"
+								title="Veggie Delight">
+						</center>
 						<div class="buttons clearfix">
 							<div class="pull-left">
-								<a href="shop.jsp" class="btn btn-default">Continue Shopping</a>
-							</div>
-							<div class="pull-right">
-								<input type="submit" class="btn btn-primary" value="Checkout">
+								<a href="shop.jsp" class="btn btn-default">Go Shopping</a>
 							</div>
 						</div>
-					</form>
+					</div>
+					<%
+    }
+%>
+
 				</div>
 			</div>
 		</div>
 	</div>
-	<% 
-					
-								
-								
-					
-					}else{
-										%>
-	<center>
-		<h3>Shopping cart is empty.</h3>
-		<img src="assets/images/cart.png" alt="veggie delight"
-			title="veggie delight">
-	</center>
-
-	<div class="buttons clearfix">
-		<div class="pull-left">
-			<a href="shop.jsp" class="btn btn-default">Go Shopping</a>
-		</div>
-
-		</tbody>
-		</table>
-	</div>
-	<%}%>
-
-	</form>
-	</div>
-	</div>
-	</div>
-	</div>
-
 	<%@ include file="/include/footer.jsp"%>
 	<%@ include file="/include/js.jsp"%>
 </body>

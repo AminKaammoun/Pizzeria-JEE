@@ -2,9 +2,13 @@
 
 <%@ page import="model.Pizza"%>
 <%@ page import="dao.PizzaDAO"%>
+<%@ page import="dao.ClientDAO"%>
 <%
-	java.util.Map<String, main.CartItem> cart = (java.util.Map<String, main.CartItem>) session.getAttribute("cart");
+ClientDAO clientDAO = new ClientDAO();	
+
+java.util.Map<String, main.CartItem> cart = (java.util.Map<String, main.CartItem>) session.getAttribute("cart");
 		double total = 0.00;
+		int points = 0;
 	%>
 
 
@@ -69,334 +73,20 @@ if (sess != null) {
 												</a></li>
 
 												<li class="with-sub-menu click">
-													<p class="close-menu"></p> <a href="shop.jsp"
-													class="clearfix"> <strong> Shop </strong> <b
-														class="fa fa-angle-down"></b>
+												 <a href="shop.jsp"
+													class="clearfix"> <strong> Shop </strong><span class="labeloffer"></span>
+														
 												</a>
 
-													<div class="sub-menu">
-														<div class="content">
-															<div class="row">
-																<div class="col-sm-12">
-																	<div class="categories hot">
-																		<div class="row">
-																			<div class="col-sm-3 static-menu">
-																				<div class="menu">
-																					<ul>
-																						<li><a href="category.html" class="main-menu">Pasta</a>
-																							<ul>
-																								<li><a href="category.html">Fedelini</a></li>
-																								<li><a href="category.html">Lasagna</a></li>
-																								<li><a href="category.html">Perciatelli</a>
-																								</li>
-																								<li><a href="category.html">Rustiche</a></li>
-																								<li><a href="category.html">Mandala</a></li>
-																								<li><a href="category.html">Boccoli</a></li>
-																								<li><a href="category.html">Chifferi</a></li>
-																							</ul></li>
-																					</ul>
-																				</div>
-																			</div>
-																			<div class="col-sm-3 static-menu">
-																				<div class="menu">
-																					<ul>
-																						<li><a href="category.html" class="main-menu">french
-																								fries</a>
-																							<ul>
-																								<li><a href="category.html">Sachets</a></li>
-																								<li><a href="category.html">Ziti</a></li>
-																								<li><a href="category.html">Rotelle</a></li>
-																								<li><a href="category.html">Fregula</a></li>
-																								<li><a href="category.html">Puntine</a></li>
-																								<li><a href="category.html">Gnocchi</a></li>
-																								<li><a href="category.html">Stortini</a></li>
-																							</ul></li>
-																					</ul>
-																				</div>
-																			</div>
-																			<div class="col-sm-3 static-menu">
-																				<div class="menu">
-																					<ul>
-																						<li><a href="category.html" class="main-menu">Drink</a>
-																							<ul>
-																								<li><a href="category.html">sosyo</a></li>
-																								<li><a href="category.html">coca-cola</a></li>
-																								<li><a href="category.html">Cheddar
-																										Cheese</a></li>
-																								<li><a href="category.html">green
-																										papper</a></li>
-																								<li><a href="category.html">Mushrooms</a></li>
-																								<li><a href="category.html">Spinach</a></li>
-																								<li><a href="category.html">greek</a></li>
-																							</ul></li>
-																					</ul>
-																				</div>
-																			</div>
-																			<div class="col-sm-3 static-menu">
-																				<div class="menu">
-																					<ul>
-																						<li><a href="category.html" class="main-menu">salad</a>
-																							<ul>
-																								<li><a href="category.html">Tossed
-																										Salad</a></li>
-																								<li><a href="category.html">Taco Salad</a>
-																								</li>
-																								<li><a href="category.html">Italian
-																										Salad</a></li>
-																								<li><a href="category.html">Pepperoni</a></li>
-																								<li><a href="category.html">Corn Chips</a>
-																								</li>
-																								<li><a href="category.html">Mozzarella
-																								</a></li>
-																								<li><a href="category.html">Tomato</a></li>
-																								<li><a href="category.html">Piombi</a></li>
-																							</ul></li>
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<div class="border"></div>
-															<div class="row nav-bar-shop-banner">
-																<div class="col-sm-12">
-																	<div class="html ">
-																		<div class="row">
-																			<div class="col-sm-6">
-																				<div class="link">
-																					<img src="assets/images/megamenu/1.jpg" alt=""
-																						class="img-responsive">
-																				</div>
-																			</div>
-																			<div class="col-sm-6">
-																				<div class="link">
-																					<img src="assets/images/megamenu/2.jpg" alt=""
-																						class="img-responsive">
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
+												
 												</li>
 												<li class="with-sub-menu click">
-													<p class="close-menu"></p> <a href="#" class="clearfix">
-														<strong> Categories </strong> <span class="labeloffer"></span>
-														<b class="fa fa-angle-down"></b>
+													<p class="close-menu"></p> <a href="cart.jsp" class="clearfix">
+														<strong> Cart </strong> 
+														
 												</a>
-
-													<div class="sub-menu">
-														<div class="content">
-															<div class="row sub_sub_menu">
-																<div class="col-sm-4">
-																	<div class="megamenu-product-list">
-																		<span class="title-submenu">Special Product</span>
-																		<div class="row">
-																			<div class="col-sm-12 ">
-																				<div class="menu-product-thumb">
-																					<div class="image">
-																						<a href="#"> <img
-																							src="assets/images/products/10.jpg"
-																							alt="Sicilian Pizza" title="Sicilian Pizza"
-																							class="img-responsive">
-																						</a>
-																					</div>
-																					<div class="product-description">
-																						<div class="caption">
-																							<h4>
-																								<a href="product.html">Sicilian Pizza</a>
-																							</h4>
-																							<div class="rating">
-																								<span class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span>
-																							</div>
-
-																							<p class="price">
-																								<span class="price-new">$98.00</span> <span
-																									class="price-old">$122.00</span> <span
-																									class="price-tax">$80.00</span>
-																							</p>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-sm-12 ">
-																				<div class="menu-product-thumb">
-																					<div class="image">
-																						<a href="#"> <img
-																							src="assets/images/products/1.jpg"
-																							alt="Speedy Pizza" title="Speedy Pizza"
-																							class="img-responsive">
-																						</a>
-																					</div>
-																					<div class="product-description">
-																						<div class="caption">
-																							<h4>
-																								<a href="product.html">Speedy Pizza</a>
-																							</h4>
-																							<div class="rating">
-																								<span class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa-regular fa-star"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa-regular fa-star"></i></span>
-																							</div>
-
-																							<p class="price">
-																								<span class="price-new">$110.00</span> <span
-																									class="price-old">$122.00</span> <span
-																									class="price-tax">$90.00</span>
-																							</p>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-sm-12 ">
-																				<div class="menu-product-thumb">
-																					<div class="image">
-																						<a href="#"> <img
-																							src="assets/images/products/1.jpg"
-																							alt="Sunrise Patrol" title="Sunrise Patrol"
-																							class="img-responsive">
-																						</a>
-																					</div>
-																					<div class="product-description">
-																						<div class="caption">
-																							<h4>
-																								<a href="product.html">Sunrise Patrol</a>
-																							</h4>
-																							<div class="rating">
-																								<span class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa fa-star fa-stack-2x"></i><i
-																									class="fa fa-star-o fa-stack-2x"></i></span> <span
-																									class="fa fa-stack"><i
-																									class="fa-regular fa-star"></i></span>
-																							</div>
-
-																							<p class="price">
-																								<span class="price-new">$92.00</span> <span
-																									class="price-old">$122.00</span> <span
-																									class="price-tax">$75.00</span>
-																							</p>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-																<div class="col-sm-4">
-																	<ul class="subcategory ">
-																		<li><a href="category.html" class="title-submenu">donuts</a>
-																			<div class="row sub_sub_menu">
-																				<div class="col-sm-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"
-																								class="main-menu">Glazed</a></li>
-																							<li><a href="category.html"
-																								class="main-menu">Jelly</a></li>
-																							<li><a href="category.html"
-																								class="main-menu">Sour Cream</a></li>
-																							<li><a href="category.html"
-																								class="main-menu">Sprinkled</a></li>
-																							<li><a href="category.html"
-																								class="main-menu">suop<b
-																									class="fa fa-angle-right"></b></a>
-																								<ul>
-																									<li><a href="category.html">manchow</a></li>
-																									<li><a href="category.html">tomato</a></li>
-																								</ul></li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div> <img
-																			src="assets/images/banners/category_banner1.jpg"
-																			alt="" class="img-responsive"></li>
-																	</ul>
-																</div>
-																<div class="col-sm-4">
-																	<ul class="subcategory ">
-																		<li><a href="category.html"
-																			class="title-submenu ">salad</a>
-																			<div class="row sub_sub_menu">
-																				<div class="col-sm-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="category.html"
-																								class="main-menu">Taco Salad<b
-																									class="fa fa-angle-right"></b></a>
-																								<ul>
-																									<li><a href="category.html">green
-																											papper</a></li>
-																									<li><a href="category.html">Mushrooms</a>
-																									</li>
-																									<li><a href="category.html">Mozzarella
-																									</a></li>
-																								</ul></li>
-																							<li><a href="category.html"
-																								class="main-menu">Tossed Salad<b
-																									class="fa fa-angle-right"></b></a>
-																								<ul>
-																									<li><a href="category.html">Cheddar
-																											Cheese</a></li>
-																									<li><a href="category.html">Corn Chips</a>
-																									</li>
-																									<li><a href="category.html">Pepperoni</a>
-																									</li>
-																								</ul></li>
-																							<li><a href="category.html"
-																								class="main-menu">Italian Salad<b
-																									class="fa fa-angle-right"></b></a>
-																								<ul>
-																									<li><a href="category.html">greek</a></li>
-																									<li><a href="category.html">Spinach</a></li>
-																									<li><a href="category.html">Tomato</a></li>
-																								</ul></li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div> <img
-																			src="assets/images/banners/category_banner1.jpg"
-																			alt="" class="img-responsive"></li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>
+ 
+												
 												</li>
 
 												<li class="with-sub-menu click">
@@ -779,14 +469,12 @@ if (sess != null) {
 															<div class="row">
 																<div class="col-sm-12">
 																	<ul class="route  html-link">
-																		<li><a href="about.html" class="main-menu">About
+																		<li><a href="#" class="main-menu">About
 																				Us</a></li>
-																		<li><a href="contact.html" class="main-menu">Contact
+																		<li><a href="#" class="main-menu">Contact
 																				Us</a></li>
-																		<li><a href="site-map.html" class="main-menu">Site
-																				Map</a></li>
-																		<li><a href="#" class="main-menu">Special</a></li>
-																		<li><a href="my-account.html" class="main-menu">My
+																	
+																		<li><a href="my_account.jsp" class="main-menu">My
 																				Account</a></li>
 																		<li><a href="#" class="main-menu">Order
 																				History</a></li>
@@ -837,18 +525,16 @@ if (sess != null) {
 						<button type="button" data-toggle="dropdown"
 							data-loading-text="<i class='fa fa-spinner fa-spin' aria-hidden='true'></i>"
 							class="btn btn-inverse btn-block btn-lg dropdown-toggle">
-							<i class="icon-bag"></i> 
-							
+							<i class="icon-bag"></i>
+
 							<% if (cart != null){ %>
-							<span id="cart-total"><%=cart.size() %>
-							<span
+							<span id="cart-total"><%=cart.size() %> <span
 								class="hidden">item(s) - $0.00</span></span>
-								<%}else{%>
-								
-								<span id="cart-total">0
-							<span
-								class="hidden">item(s) - $0.00</span></span>
-								<%} %>
+							<%}else{%>
+
+							<span id="cart-total">0 <span class="hidden">item(s)
+									- $0.00</span></span>
+							<%} %>
 						</button>
 						<ul class="dropdown-menu pull-right header-cart-toggle">
 							<li class="cart-content-product">
@@ -862,6 +548,7 @@ if (sess != null) {
 																																							main.CartItem cartItem = entry.getValue();
 																																							double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
 																																							double totalPrice = unitPrice * cartItem.getQuantity();
+																																							points += cartItem.getQuantity() * 10;
 																																							total += totalPrice;
 									%>
 
@@ -934,19 +621,18 @@ if (sess != null) {
 				</div>
 
 				<div id="header_ac" class="dropdown">
-					<a href="#" title="My Account" class="dropdown-toggle"
+					<a href="my_account.jsp" title="My Account" class="dropdown-toggle"
 						data-toggle="dropdown"> <i class="icon-user1"></i><span
 						class="hidden">My Account</span><span class="caret hidden"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-right account-link-toggle">
-						<%
+						<% 
 				if (session.getAttribute("login") != null) {
-				%>
+				%> 
 						<li><a href="/Pizzaria/Logout">Logout</a></li>
 						<%
 				}else{
 				%>
-
 						<li><a href="/Pizzaria/login.jsp">Register</a></li>
 						<li><a href="/Pizzaria/login.jsp">Login</a></li>
 						<%} %>
