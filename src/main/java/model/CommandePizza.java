@@ -2,6 +2,7 @@ package model;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "pizza_order")
 
@@ -22,6 +23,8 @@ public class CommandePizza {
 
 	@Column(name = "quantity")
 	private int quantity;
+	
+
 
 	public CommandePizza() {
 	}
@@ -30,6 +33,7 @@ public class CommandePizza {
 		this.commande = commande;
 		this.pizza = pizza;
 		this.quantity = quantity;
+		
 	}
 
 	public int getId() {

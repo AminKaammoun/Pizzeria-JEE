@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import main.CartItem;
 import model.Commande;
 
 import java.io.IOException;
@@ -16,8 +17,6 @@ import dao.ClientDAO;
 import dao.CommandeDAO;
 import dao.CommandePizzaDAO;
 import dao.PizzaDAO;
-
-import model.CartItem;
 import model.Client;
 import model.Pizza;
 import model.CommandePizza;
@@ -50,41 +49,39 @@ public class SubmitOrder extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Retrieve parameters
+      
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String desc = request.getParameter("enquiry");
         String phone = request.getParameter("phone");
+        double total = Double.parseDouble(request.getParameter("total"));
 
-        // Create a new Commande (Order)
-        Commande commande = new Commande(99, LocalDate.now(), LocalDate.now(), clientDAO.findByLogin(email));
+        System.out.println("Total amount received: " + total);
+        
+        Commande commande = new Commande(total, LocalDate.now(), null, clientDAO.findByLogin(email));
         commandeDAO.create(commande); 
 
-        // Retrieve the cart items from session
+      
         HttpSession session = request.getSession(false);
         Map<String, CartItem> cart = (Map<String, CartItem>) session.getAttribute("cart");
        
-        // Process each cart item
         for (Map.Entry<String, CartItem> entry : cart.entrySet()) {
             String itemId = entry.getKey();
             CartItem cartItem = entry.getValue();
 
-            // Find the Pizza by itemId and make sure it's persisted
             int pizzaId = Integer.parseInt(itemId);
             Pizza pizza = pizzaDAO.findById(pizzaId);
        
       
-            // Create CommandePizza and associate with Commande and Pizza
             CommandePizza commandePizza = new CommandePizza(commande, pizza, cartItem.getQuantity());
-            commandePizzaDAO.create(commandePizza); // Persist the CommandePizza
+            commandePizzaDAO.create(commandePizza); 
         }
 
-        // Optionally, clear the cart from session after processing
         session.removeAttribute("cart");
 
-        // Redirect to a success page or provide feedback
-        //response.sendRedirect("order-success.jsp"); // Replace with your success page URL
+       
+        response.sendRedirect("cart.jsp");
     }
 
 

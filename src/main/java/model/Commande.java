@@ -2,12 +2,15 @@ package model;
 
 
 import java.time.LocalDate;
+import main.OrderStatus;
 import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,6 +18,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import main.OrderStatus;
 
 @Entity
 @Table(name = "orders")
@@ -27,7 +31,12 @@ public class Commande {
 	private int id;
 	
 	@Column(name= "amount")
-	private int amount;
+	private double amount;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "status")
+	private OrderStatus status;
+
 
 	@Column(name= "createdDate")
 	private LocalDate dateCreation;
@@ -44,20 +53,47 @@ public class Commande {
     private Set<CommandePizza> commandePizzas = new HashSet<>();
 	
 	
+	
+    
     public Commande() {
     	
     }
     
-	public Commande(int amount, LocalDate dateCreation, LocalDate dateDelivery, Client client) {
+	public Commande(double amount, LocalDate dateCreation, LocalDate dateDelivery, Client client) {
 	
 		this.amount = amount;
 		this.dateCreation = dateCreation;
 		this.dateDelivery = dateDelivery;
 		this.client = client;
+		this.status = OrderStatus.IN_HOLD;
 		
 	}
 
 	
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Set<CommandePizza> getCommandePizzas() {
+		return commandePizzas;
+	}
+
+	public void setCommandePizzas(Set<CommandePizza> commandePizzas) {
+		this.commandePizzas = commandePizzas;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -68,11 +104,11 @@ public class Commande {
 
 
 
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 

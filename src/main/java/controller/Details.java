@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import main.CartItem;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -13,8 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import model.Pizza;
-import model.CartItem;
-
 import dao.PizzaDAO;
 
 /**

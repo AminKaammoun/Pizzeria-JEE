@@ -3,8 +3,8 @@
 <%@ page import="model.Pizza"%>
 	<%@ page import="dao.PizzaDAO"%>
 	<%
-	java.util.Map<String, model.CartItem> cart = (java.util.Map<String, model.CartItem>) session.getAttribute("cart");
-	double total = 0.00;
+	java.util.Map<String, main.CartItem> cart = (java.util.Map<String, main.CartItem>) session.getAttribute("cart");
+		double total = 0.00;
 	%>
 
 
@@ -846,13 +846,14 @@ if (sess != null) {
 									<tbody>
 										
 										
-											<%if(cart != null){
-									for (java.util.Map.Entry<String, model.CartItem> entry : cart.entrySet()) {
-										model.CartItem cartItem = entry.getValue();
-										double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
-										double totalPrice = unitPrice * cartItem.getQuantity();
-										total += totalPrice;
-									%>
+											<%
+																															if(cart != null){
+																																						for (java.util.Map.Entry<String, main.CartItem> entry : cart.entrySet()) {
+																																							main.CartItem cartItem = entry.getValue();
+																																							double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
+																																							double totalPrice = unitPrice * cartItem.getQuantity();
+																																							total += totalPrice;
+																															%>
 										
 										<tr>
 											<td class="text-center product-cart-thumb"><a href="#">

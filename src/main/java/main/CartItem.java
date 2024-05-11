@@ -1,5 +1,6 @@
-package model;
+package main;
 
+import model.Pizza;
 
 public class CartItem {
 

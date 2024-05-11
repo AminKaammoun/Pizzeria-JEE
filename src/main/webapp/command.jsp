@@ -8,7 +8,7 @@
 <%@ include file="/include/css.jsp"%>
 </head>
 <body>
-	<%@ include file="/include/header.jsp"%>
+	<%@ include file="/include/header.jsp"%> 
 
 
 	<div class="blog-section Contact_Us">
@@ -105,6 +105,7 @@
 										</div>
 									</div>
 								</fieldset>
+								 <input type="hidden" name="total" value="<%=total%>">
 								<div class="buttons clearfix">
 									<div class="pull-right">
 										<input class="btn btn-primary" type="submit" value="Submit">

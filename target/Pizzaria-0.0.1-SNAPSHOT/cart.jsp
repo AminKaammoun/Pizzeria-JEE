@@ -216,7 +216,9 @@
 							</ul>
 						</div>
 					</div>
-					<%if (cart != null) { %>
+					<%
+					if (cart != null) {
+					%>
 					<h1 class="cart-title">Shopping Cart &nbsp;(0.00kg)</h1>
 					<form action="Command" method="post" enctype="multipart/form-data">
 						<div class="table-responsive">
@@ -233,11 +235,10 @@
 								</thead>
 								<tbody>
 									<%
-									
-										for (java.util.Map.Entry<String, model.CartItem> entry : cart.entrySet()) {
-											model.CartItem cartItem = entry.getValue();
-											double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
-											double totalPrice = unitPrice * cartItem.getQuantity();
+									for (java.util.Map.Entry<String, main.CartItem> entry : cart.entrySet()) {
+																		main.CartItem cartItem = entry.getValue();
+																		double unitPrice = cartItem.getPizza().getSizeToPrice().get(cartItem.getSize()).doubleValue();
+																		double totalPrice = unitPrice * cartItem.getQuantity();
 									%>
 									<tr>
 										<td class="text-center"><a href="#"> <img

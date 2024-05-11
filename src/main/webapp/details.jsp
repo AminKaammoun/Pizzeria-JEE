@@ -10,7 +10,7 @@
 <body>
 	<%@ page import="model.Pizza"%>
 	<%@ page import="dao.PizzaDAO"%>
-	<%@ include file="/include/header.jsp"%>
+	<%@ include file="/include/header.jsp"%> 
 	<%
 	String pizzaId = request.getParameter("pizzaId");
 	%>
