@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home page</title>
+<title>My Account</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <%@ include file ="/include/css.jsp" %>
 </head>
@@ -34,7 +34,8 @@
                         <div class="breadcrumb-container clearfix">
                             <ul class="breadcrumb"> 
                                 <li><a href="index.jsp">Home</a></li>
-                                <li><a href="#">Account </a></li>
+                                <li><a href="#">Pages </a></li>
+                                <li><a href="#">My Account </a></li>
                               
                             </ul>
                         </div>
@@ -76,9 +77,9 @@
                                 </fieldset>
                            <br><br>
                            <h6>Reward Points: <%=clientDAO.findByLogin((String)sess.getAttribute("email")).getPtDeFidelite() %></h6>
+                           <a href="redeem.jsp" class="btn btn-primary">Redeem</a>
                            
-                           
-                                <div class="buttons clearfix">
+                                <div class="buttons clearfix"> 
                                     <div class="pull-right">
                                       
                                        <input type="submit" value="Save" class="btn btn-primary" onclick="showNotification()">
