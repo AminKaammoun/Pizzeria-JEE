@@ -27,7 +27,10 @@
 
 								<li><a href="contact.jsp" class="list-group-item">Contact
 										Us</a></li>
-								<li><a href="#" class="list-group-item">My Account</a></li>
+								<li><a href="my_account.jsp" class="list-group-item">My
+										Account</a></li>
+								<li><a href="my_vouchers.jsp" class="list-group-item">My
+										Vouchers</a></li>
 								<li><a href="history.jsp" class="list-group-item">Order
 										History</a></li>
 							</ul>
@@ -63,7 +66,7 @@
 							class="product-layout product-grid col-lg-4 col-md-6 col-sm-4 col-xs-4">
 							<div class="product-thumb">
 								<div class="image">
-									<a href="product.html" class="thumb-image"> <img
+									<a href="#" class="thumb-image"> <img
 										src="assets/images/5.png" alt="Buttercrust"
 										title="Buttercrust" class="img-responsive">
 									</a>
@@ -93,7 +96,7 @@
 									<div class="caption">
 										<div class="title-rating clearfix">
 											<h4 class="product-title">
-												<a href="product.html">5% Voucher</a>
+												<a href="#">5% Voucher</a>
 											</h4>
 
 										</div>
@@ -107,10 +110,21 @@
 												technology as iPhone. Pinch to zoom in on a photo. Scroll
 												through your songs and videos with a flick. Flip through
 												your library by album artwork with Cover Flow. ..</p>
-											<button class="addcart" type="button">
-												<i class="icon-shopping-bag hidden"></i> <span class=""><a
-													href="shopping-cart.html">Redeem</a> </span>
+											<!-- Button to trigger the pop-up -->
+											<button class="addcart" id="redeemButton" data-user-id="1"
+												type="button">
+												<i class="icon-shopping-bag hidden"></i> <span>Redeem</span>
 											</button>
+
+											<!-- Hidden pop-up container -->
+											<div id="popupContainer" class="popup">
+												<div class="popup-content">
+													<p>Are you sure you want to redeem?</p>
+													<button id="confirmButton">Redeem</button>
+													<button id="cancelButton">Cancel</button>
+												</div>
+											</div>
+
 										</div>
 									</div>
 								</div>
@@ -120,7 +134,7 @@
 							class="product-layout product-grid col-lg-4 col-md-6 col-sm-4 col-xs-4">
 							<div class="product-thumb">
 								<div class="image">
-									<a href="product.html" class="thumb-image"> <img
+									<a href="#" class="thumb-image"> <img
 										src="assets/images/10.png" alt="gorgonzola" title="gorgonzola"
 										class="img-responsive">
 									</a>
@@ -150,7 +164,7 @@
 									<div class="caption">
 										<div class="title-rating clearfix">
 											<h4 class="product-title">
-												<a href="product.html">10% Voucher</a>
+												<a href="#">10% Voucher</a>
 											</h4>
 
 										</div>
@@ -163,10 +177,20 @@
 												respond to business and personal email, stay on top of
 												appointments and contacts, and use Wi-Fi or GPS when you’re
 												out and about. Then watch a video on YouTube..</p>
-											<button class="addcart" type="button">
-												<i class="icon-shopping-bag hidden"></i> <span class=""><a
-													href="shopping-cart.html">Redeem</a> </span>
+											<!-- Button to trigger the pop-up -->
+											<button class="addcart" id="redeemButton" data-user-id="2"
+												type="button">
+												<i class="icon-shopping-bag hidden"></i> <span>Redeem</span>
 											</button>
+
+											<!-- Hidden pop-up container -->
+											<div id="popupContainer" class="popup">
+												<div class="popup-content">
+													<p>Are you sure you want to redeem?</p>
+													<button id="confirmButton">Redeem</button>
+													<button id="cancelButton">Cancel</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -176,7 +200,7 @@
 							class="product-layout product-grid col-lg-4 col-md-6 col-sm-4 col-xs-4">
 							<div class="product-thumb">
 								<div class="image">
-									<a href="product.html" class="thumb-image"> <img
+									<a href="#" class="thumb-image"> <img
 										src="assets/images/15.png" alt="Mozzarella" title="Mozzarella"
 										class="img-responsive">
 									</a>
@@ -206,7 +230,7 @@
 									<div class="caption">
 										<div class="title-rating clearfix">
 											<h4 class="product-title">
-												<a href="product.html">15% Voucher</a>
+												<a href="#">15% Voucher</a>
 											</h4>
 
 										</div>
@@ -219,10 +243,20 @@
 												with you anywhere. Choose from five colors including four
 												new hues to make your musical fashion statement. Random
 												meets rhythm. With iTunes auto..</p>
-											<button class="addcart" type="button">
-												<i class="icon-shopping-bag hidden"></i> <span class=""><a
-													href="shopping-cart.html">Redeem</a> </span>
+											<!-- Button to trigger the pop-up -->
+											<button class="addcart" id="redeemButton" data-user-id="3"
+												type="button">
+												<i class="icon-shopping-bag hidden"></i> <span>Redeem</span>
 											</button>
+
+											<!-- Hidden pop-up container -->
+											<div id="popupContainer" class="popup">
+												<div class="popup-content">
+													<p>Are you sure you want to redeem?</p>
+													<button id="confirmButton">Redeem</button>
+													<button id="cancelButton">Cancel</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -232,7 +266,7 @@
 							class="product-layout product-grid col-lg-4 col-md-6 col-sm-4 col-xs-4">
 							<div class="product-thumb">
 								<div class="image">
-									<a href="product.html" class="thumb-image"> <img
+									<a href="#" class="thumb-image"> <img
 										src="assets/images/25.png" alt="Speedy Pizza"
 										title="Speedy Pizza" class="img-responsive">
 									</a>
@@ -262,7 +296,7 @@
 									<div class="caption">
 										<div class="title-rating clearfix">
 											<h4 class="product-title">
-												<a href="product.html">25% Voucher</a>
+												<a href="#">25% Voucher</a>
 											</h4>
 
 										</div>
@@ -275,10 +309,20 @@
 												Designed specifically for the creative professional, this
 												display provides more space for easier access to all the
 												tools and palettes needed to edit, format and com..</p>
-											<button class="addcart" type="button">
-												<i class="icon-shopping-bag hidden"></i> <span class=""><a
-													href="shopping-cart.html">Redeem</a> </span>
+											<!-- Button to trigger the pop-up -->
+											<button class="addcart" id="redeemButton" data-user-id="4"
+												type="button">
+												<i class="icon-shopping-bag hidden"></i> <span>Redeem</span>
 											</button>
+
+											<!-- Hidden pop-up container -->
+											<div id="popupContainer" class="popup">
+												<div class="popup-content">
+													<p>Are you sure you want to redeem?</p>
+													<button id="confirmButton">Redeem</button>
+													<button id="cancelButton">Cancel</button>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -288,7 +332,7 @@
 							class="product-layout product-grid col-lg-4 col-md-6 col-sm-4 col-xs-4">
 							<div class="product-thumb">
 								<div class="image">
-									<a href="product.html" class="thumb-image"> <img
+									<a href="#" class="thumb-image"> <img
 										src="assets/images/50.png" alt="veggie delight"
 										title="veggie delight" class="img-responsive">
 									</a>
@@ -318,7 +362,7 @@
 									<div class="caption">
 										<div class="title-rating clearfix">
 											<h4 class="product-title">
-												<a href="product.html">50% Voucher</a>
+												<a href="#">50% Voucher</a>
 											</h4>
 
 										</div>
@@ -331,10 +375,37 @@
 												Panel Monitor. This flagship monitor features best-in-class
 												performance and presentation features on a huge wide-aspect
 												screen while letting you work as comfor..</p>
-											<button class="addcart" type="button">
-												<i class="icon-shopping-bag hidden"></i> <span class=""><a
-													href="shopping-cart.html">Redeem</a> </span>
+											<!-- Button to trigger the pop-up -->
+											<button class="addcart" id="redeemButton" data-user-id="5"
+												type="button">
+												<i class="icon-shopping-bag hidden"></i> <span>Redeem</span>
 											</button>
+
+											<!-- Hidden pop-up container -->
+											<div class="modal" id="myModal">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<!-- Modal Header -->
+														<div class="modal-header">
+															<h4 class="modal-title">Redeem Voucher</h4>
+															<button type="button" class="close" data-dismiss="modal">&times;</button>
+														</div>
+
+														<!-- Modal Body -->
+														<div class="modal-body">
+															<p>Are you sure you want to redeem this voucher?</p>
+														</div>
+
+														<!-- Modal Footer -->
+														<div class="modal-footer">
+															<button type="button" class="btn btn-secondary"
+																data-dismiss="modal">Cancel</button>
+															<button type="button" class="btn btn-primary redeem-btn">Redeem</button>
+														</div>
+													</div>
+												</div>
+											</div>
+
 										</div>
 									</div>
 								</div>
@@ -353,4 +424,54 @@
 	<%@ include file="/include/footer.jsp"%>
 
 </body>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var redeemButtons = document.querySelectorAll('.addcart'); // Select all redeem buttons
+
+		// Loop through each redeem button
+		redeemButtons.forEach(function(redeemButton) {
+			var popupContainer = redeemButton.nextElementSibling; // Get the next sibling element (popup)
+
+			// Event listener for each redeem button
+			redeemButton.addEventListener('click', function() {
+				// Show the corresponding popup
+				popupContainer.style.display = 'flex';
+			});
+
+			// Event listener for the cancel button inside each popup
+			var cancelButton = popupContainer.querySelector('#cancelButton');
+			cancelButton.addEventListener('click', function() {
+				// Hide the popup when cancel button is clicked
+				popupContainer.style.display = 'none';
+			});
+
+			// Event listener for the confirm button inside each popup
+			var confirmButton = popupContainer.querySelector('#confirmButton');
+			confirmButton.addEventListener('click', function() {
+				var id = redeemButton.getAttribute('data-user-id');
+
+				if (id) {
+					// Redirect based on the data-user-id attribute
+					window.location.href = 'AddVoucher?redeemId=' + id;
+<%if (request.getAttribute("alertMessage") != null) {%>
+	// Display an alert with the message
+					alert("${alertMessage}");
+<%}%>
+	}
+			});
+		});
+	});
+
+	// Hide all popups initially when the page finishes loading
+	window.addEventListener('load', function() {
+		var popups = document.querySelectorAll('.popup');
+		popups.forEach(function(popup) {
+			popup.style.display = 'none';
+		});
+	});
+</script>
+
+
+
+
 </html>

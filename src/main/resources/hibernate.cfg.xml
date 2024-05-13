@@ -18,5 +18,6 @@
 		<mapping class="model.Pizza" />
 		<mapping class="model.Commande" />
 		<mapping class="model.CommandePizza" />
+		<mapping class="model.Voucher"/>
 	</session-factory>
 </hibernate-configuration>

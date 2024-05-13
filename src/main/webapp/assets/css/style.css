@@ -1045,6 +1045,72 @@ ul.themability_megamenu>li span.labelhot:after {
     background-color: #cc0000; /* Darker red on hover */
 }
 
+.popup  {
+    display: none; /* Initially hide the pop-up */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999; /* Set a high z-index to ensure the pop-up appears on top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 10000; /* Set an even higher z-index for the content within the pop-up */
+}
+
+ .hidden {
+        display: none; 
+    }
+
+
+.modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-dialog {
+        position: relative;
+        margin: 10% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 600px;
+        background-color: #fefefe;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .modal-header {
+        padding: 10px 15px;
+        border-bottom: 1px solid #ddd;
+        background-color: #f5f5f5;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .modal-footer {
+        padding: 10px 15px;
+        border-top: 1px solid #ddd;
+        text-align: right;
+    }
+
 #cart .dropdown-menu table td.product-cart-close,
 #cart .dropdown-menu table td.voucher-close {
     position: absolute;

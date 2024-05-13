@@ -476,6 +476,9 @@ if (sess != null) {
 																	
 																		<li><a href="my_account.jsp" class="main-menu">My
 																				Account</a></li>
+																				
+																		<li><a href="my_vouchers.jsp" class="main-menu">My
+																				Vouchers</a></li>
 																		<li><a href="#" class="main-menu">Order
 																				History</a></li>
 																	</ul>

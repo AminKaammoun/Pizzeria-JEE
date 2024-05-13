@@ -85,4 +85,14 @@
     <servlet-name>UpdateProfile</servlet-name>
     <url-pattern>/UpdateProfile</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddVoucher</display-name>
+    <servlet-name>AddVoucher</servlet-name>
+    <servlet-class>controller.AddVoucher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddVoucher</servlet-name>
+    <url-pattern>/AddVoucher</url-pattern>
+  </servlet-mapping>
 </web-app>
