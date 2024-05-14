@@ -95,4 +95,14 @@
     <servlet-name>AddVoucher</servlet-name>
     <url-pattern>/AddVoucher</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UseVoucher</display-name>
+    <servlet-name>UseVoucher</servlet-name>
+    <servlet-class>controller.UseVoucher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UseVoucher</servlet-name>
+    <url-pattern>/UseVoucher</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -24,22 +24,26 @@ public class Voucher {
 	@Column(name = "price")
 	private int price;
 	
+	@Column(name = "status")
+	private int status;
+	
 	@Column(name = "end_date")
 	private LocalDate endDate;
 	
 	
-	public Voucher() {
+	public Voucher() { 
 		
 	}
 
 	
 	
-	public Voucher(int id, Client client, int percentage, LocalDate endDate) {
+	public Voucher(int id, Client client, int percentage, LocalDate endDate, int status) {
 		super();
 		this.id = id;
 		this.client = client;
 		this.percentage = percentage;
 		this.endDate = endDate;
+		this.status = status;
 	}
 
 
@@ -82,6 +86,30 @@ public class Voucher {
 
 	public void setEndDate(LocalDate localDate) {
 		this.endDate = localDate;
+	}
+
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+
+	public int getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(int i) {
+		this.status = i;
 	}
 	
 	

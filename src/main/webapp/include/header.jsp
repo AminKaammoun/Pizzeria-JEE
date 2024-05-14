@@ -3,6 +3,9 @@
 <%@ page import="model.Pizza"%>
 <%@ page import="dao.PizzaDAO"%>
 <%@ page import="dao.ClientDAO"%>
+<%@ page import="dao.VoucherDAO"%>
+<%@ page import="model.Voucher"%>
+<%@ page import="model.Client"%>
 <%
 ClientDAO clientDAO = new ClientDAO();	
 
@@ -28,12 +31,27 @@ if (sess != null) {
 		// Attribute doesn't exist
 		// Example: out.println("You are not logged in");
 	}
-} else {
-	// Session doesn't exist
-	// Example: out.println("You are not logged in");
 }
 %>
 
+<%
+int pourcentage = 0;
+int pourcentageDiscountAmount = 1;
+
+
+VoucherDAO voucherDAO = new VoucherDAO();	
+java.util.List<Voucher> vouchers = voucherDAO.findAll();
+Client client = clientDAO.findByLogin((String) sess.getAttribute("email"));
+
+if (client != null) {
+    for (Voucher voucher : vouchers) {
+        if (voucher.getStatus() == 1 && voucher.getClient().getId() == client.getId()) { 
+            pourcentage += voucher.getPercentage();  
+        }
+    }
+}
+
+%>
 
 <header class="home">
 	<div class="container">
@@ -587,6 +605,7 @@ if (sess != null) {
 							</li>
 							<li>
 								<div>
+										<% if (cart != null){ %>
 									<table class="table table-bordered">
 										<tbody>
 											<tr>
@@ -599,16 +618,18 @@ if (sess != null) {
 											</tr>
 											<tr>
 												<td class="text-left"><strong>Discount Voucher
-														(0%)</strong></td>
-												<td class="text-right">-0.00 DT</td>
+														(<%=pourcentage%>%)</strong></td>
+												<td class="text-right"><%= String.format("%.2f", (total * pourcentage) / 100) %> DT</td>
+
+
 											</tr>
 											<tr>
 												<td class="text-left"><strong>Total</strong></td>
-												<td class="text-right"><%=total%> DT</td>
+												<td class="text-right"><%=String.format("%.2f",total - (total * pourcentage) / 100)%> DT</td>
 											</tr>
-										</tbody>
+										</tbody> 
 									</table>
-
+									<%} %>
 
 									<p class="text-right product-cart-button">
 										<a href="cart.jsp" class="btn cart-btn addtocart-btn"><i

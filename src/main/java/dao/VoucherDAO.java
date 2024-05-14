@@ -69,4 +69,37 @@ public class VoucherDAO {
 			session.close();
 		}
 	}
+	
+	public void update(Voucher voucher) {
+	    Session session = sessionFactory.openSession();
+	    Transaction tx = null;
+	    try {
+	        tx = session.beginTransaction();
+	        session.merge(voucher); // Use merge instead of update
+	        tx.commit();
+	    } catch (Exception e) {
+	        if (tx != null) tx.rollback();
+	        throw e;
+	    } finally {
+	        session.close();
+	    }
+	}
+	
+	public void delete(Voucher voucher) {
+	    Session session = sessionFactory.openSession();
+	    Transaction tx = null;
+	    try {
+	        tx = session.beginTransaction();
+	        session.remove(voucher); // Use remove to delete the object from the database
+	        tx.commit();
+	    } catch (Exception e) {
+	        if (tx != null) tx.rollback();
+	        throw e;
+	    } finally {
+	        session.close();
+	    }
+	} 
+
+
+
 }

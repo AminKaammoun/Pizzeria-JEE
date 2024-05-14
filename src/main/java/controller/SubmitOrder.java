@@ -17,9 +17,11 @@ import dao.ClientDAO;
 import dao.CommandeDAO;
 import dao.CommandePizzaDAO;
 import dao.PizzaDAO;
+import dao.VoucherDAO;
 import model.Client;
 import model.Pizza;
 import model.CommandePizza;
+import model.Voucher;
 
 
 /**
@@ -32,6 +34,7 @@ public class SubmitOrder extends HttpServlet {
 	private CommandeDAO commandeDAO ;
 	private CommandePizzaDAO commandePizzaDAO;
 	private PizzaDAO pizzaDAO;
+	private VoucherDAO voucherDAO;
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -42,6 +45,7 @@ public class SubmitOrder extends HttpServlet {
         commandeDAO = new CommandeDAO();
         commandePizzaDAO = new CommandePizzaDAO();
         pizzaDAO = new PizzaDAO();
+        voucherDAO = new VoucherDAO();
         
         }
 
@@ -71,6 +75,16 @@ public class SubmitOrder extends HttpServlet {
         Commande commande = new Commande(total,address, LocalDate.now(), null, c);
         commandeDAO.create(commande); 
 
+        java.util.List<Voucher> vouchers = voucherDAO.findAll();
+       
+
+        for(Voucher voucher : vouchers){
+
+        	if(voucher.getStatus() == 1 && voucher.getClient().getId()== c.getId()){ 
+        		
+        		voucherDAO.delete(voucher);
+        	}
+        }   
       
         HttpSession session = request.getSession(false);
         Map<String, CartItem> cart = (Map<String, CartItem>) session.getAttribute("cart");

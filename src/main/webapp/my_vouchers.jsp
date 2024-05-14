@@ -11,16 +11,10 @@
 </head>
 <body>
 	<%@ include file="/include/header.jsp"%>
-	<%@ page import="dao.VoucherDAO"%>
+
 
 	<%@ page import="model.Voucher"%>
-	<% 
-VoucherDAO voucherDAO = new VoucherDAO();
 
-java.util.List<Voucher> vouchers = voucherDAO.findAllByClient((String)sess.getAttribute("email"));
-
-
-%>
 	<div class="blog-section donuts">
 		<div class="container">
 			<div class="row">
@@ -55,9 +49,14 @@ java.util.List<Voucher> vouchers = voucherDAO.findAllByClient((String)sess.getAt
 					</div>
 					<div>
 						<h6>My Vouchers Inventory:</h6>
-						<% if(vouchers != null && !vouchers.isEmpty()) { %>
+						<% int counter = 0;
+						if(vouchers != null && !vouchers.isEmpty()) { %>
 						<div class="category-row row">
-							<% for (Voucher voucher : vouchers) { %>
+							<% 
+							for (Voucher voucher : vouchers) {
+								
+							if(voucher.getStatus() == 0){
+								%>
 							<div
 								class="product-layout product-grid col-lg-4 col-md-6 col-sm-4 col-xs-4">
 								<div class="product-thumb">
@@ -95,9 +94,13 @@ java.util.List<Voucher> vouchers = voucherDAO.findAllByClient((String)sess.getAt
 											</div>
 											<div class="price-cartbtn clearfix">
 												<p class="description">Description of the voucher...</p>
-												<button class="addcart" data-user-id="1" type="button">
-													<i class="icon-shopping-bag hidden"></i> <span>Use</span>
+
+												<button class="addcart" type="button">
+													<i class="icon-shopping-bag hidden"></i> <a
+														href="UseVoucher?voucherId=<%=voucher.getId() %>">Use</a>
+													</span>
 												</button>
+
 												<div class="popup hidden">
 													<div class="popup-content">
 														<p>Are you sure you want to redeem?</p>
@@ -110,17 +113,30 @@ java.util.List<Voucher> vouchers = voucherDAO.findAllByClient((String)sess.getAt
 									</div>
 								</div>
 							</div>
-							<% } %>
+							<% }else{ 
+								
+								counter++;
+							}
+							
+							} %>
 						</div>
 						<% } else { %>
-						<br>
-						<br>
-						<br>
+						<br> <br> <br>
 						<center>
 							<h6>You don't have any vouchers yet :(</h6>
 							<a href="redeem.jsp" class="btn btn-default">Redeem</a>
-						</center> 
-						<% } %> 
+						</center>
+						<% } %>
+						
+						<% if (counter>0) {%>
+						<br> <br> <br>
+						<center>
+							<h6>You don't have any vouchers yet :(</h6>
+							<a href="redeem.jsp" class="btn btn-default">Redeem</a>
+						</center>
+						
+						<% counter = 0;
+						} %>
 					</div>
 				</div>
 			</div>

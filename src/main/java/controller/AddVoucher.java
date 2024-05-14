@@ -50,6 +50,7 @@ public class AddVoucher extends HttpServlet {
 		Client client = clientDAO.findByLogin(username);
 		voucher.setClient(client);
 		voucher.setEndDate(LocalDate.now());
+		voucher.setStatus(0);
 
 		switch (redeemId) {
 		case "1":

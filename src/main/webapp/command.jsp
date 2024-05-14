@@ -106,7 +106,7 @@
 										</div>
 									</div>
 								</fieldset>
-								 <input type="hidden" name="total" value="<%=total%>">
+								 <input type="hidden" name="total" value="<%=String.format("%.2f",total - (total * pourcentage) / 100)%>">
 								  <input type="hidden" name="points" value="<%=points%>">
 								<div class="buttons clearfix">
 									<div class="pull-right">

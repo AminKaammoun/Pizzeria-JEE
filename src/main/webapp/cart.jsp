@@ -286,7 +286,7 @@
 										<tbody>
 											<tr>
 												<td class="text-left cart-total-title">Sub-Total:</td>
-												<td class="text-right cart-total-price"><%=total%> DT</td>
+												<td class="text-right cart-total-price"><%=total %> DT</td>
 											</tr>
 											<tr>
 												<td class="text-left cart-total-title">Sale (0%):</td>
@@ -295,11 +295,11 @@
 											<tr>
 												<td class="text-left cart-total-title">Discount Voucher
 													(0%):</td>
-												<td class="text-right cart-total-price">-0.00 DT</td>
+												<td class="text-right cart-total-price">-<%= String.format("%.2f", (total * pourcentage) / 100) %> DT</td>
 											</tr>
 											<tr>
 												<td class="text-left cart-total-title">Total:</td>
-												<td class="text-right cart-total-price"><%=total%> DT</td>
+												<td class="text-right cart-total-price"><%=String.format("%.2f",total - (total * pourcentage) / 100)%> DT</td>
 											</tr>
 										</tbody>
 									</table>
