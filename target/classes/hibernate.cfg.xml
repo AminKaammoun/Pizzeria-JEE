@@ -19,5 +19,6 @@
 		<mapping class="model.Commande" />
 		<mapping class="model.CommandePizza" />
 		<mapping class="model.Voucher"/>
+		<mapping class="model.Chef"/>
 	</session-factory>
 </hibernate-configuration>

@@ -37,7 +37,7 @@ public class CommandePizzaDAO {
 	public CommandePizza findById(int id) {
 		Session session = sessionFactory.openSession();
 		try {
-			Query<CommandePizza> query = session.createQuery("FROM Commande WHERE id = :id", CommandePizza.class);
+			Query<CommandePizza> query = session.createQuery("FROM CommandePizza WHERE id = :id", CommandePizza.class);
 			query.setParameter("id", id);
 			return query.uniqueResult();
 		} finally {
@@ -48,7 +48,7 @@ public class CommandePizzaDAO {
 	public List<CommandePizza> findAll() {
 		Session session = sessionFactory.openSession();
 		try {
-			return session.createQuery("from Commande", CommandePizza.class).getResultList();
+			return session.createQuery("from CommandePizza", CommandePizza.class).getResultList();
 		} finally {
 			session.close();
 		}

@@ -20,14 +20,17 @@ public abstract class User {
 	@Column(name = "password")
 	private String psw;
 
+	@Column(name = "email")
+	private String email;
 
 	  public User() {
 	    }
-	public User(String name, String login, String psw) {
+	public User(String name, String login, String psw, String email) {
 		super();
 		this.name = name;
 		this.login = login;
 		this.psw = psw;
+		this.email = email;
 	}
 	
 	public String getName() {
@@ -54,6 +57,12 @@ public abstract class User {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 

@@ -8,8 +8,7 @@ import jakarta.persistence.Table;
 @Table(name = "clients")
 public class Client extends User {
 
-	@Column(name = "email")
-	private String email;
+
 	
 	@Column(name = "tel")
 	private String tel;
@@ -26,15 +25,11 @@ public class Client extends User {
 
 
 	public Client(String name, String login,String email,String tel ,String password) {
-		super(name, login, password);
-		this.email = email;
+		super(name, login, password, email);
+		
 		this.tel = tel;
 		this.ptDeFidelite = 0;
 		this.adresse = "";
-	}
-
-	public String getEmail() {
-		return email;
 	}
 
 	public String getAdresse() {
@@ -53,9 +48,6 @@ public class Client extends User {
 		this.ptDeFidelite = ptDeFidelite;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 	public String getTel() {
 		return tel;

@@ -105,4 +105,34 @@
     <servlet-name>UseVoucher</servlet-name>
     <url-pattern>/UseVoucher</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StartPreparing</display-name>
+    <servlet-name>StartPreparing</servlet-name>
+    <servlet-class>controller.StartPreparing</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StartPreparing</servlet-name>
+    <url-pattern>/StartPreparing</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ready</display-name>
+    <servlet-name>Ready</servlet-name>
+    <servlet-class>controller.Ready</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ready</servlet-name>
+    <url-pattern>/Ready</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ShowCommandeDetails</display-name>
+    <servlet-name>ShowCommandeDetails</servlet-name>
+    <servlet-class>controller.ShowCommandeDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowCommandeDetails</servlet-name>
+    <url-pattern>/ShowCommandeDetails</url-pattern>
+  </servlet-mapping>
 </web-app>
