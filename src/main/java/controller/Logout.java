@@ -32,7 +32,12 @@ public class Logout extends HttpServlet {
 
        
             //session.invalidate();
-            session.setAttribute("login", null);
+		 session.setAttribute("email", null);
+         session.setAttribute("login", null);
+         session.setAttribute("name", null);
+         session.setAttribute("tel", null);
+         session.setAttribute("psw", null);
+         session.setAttribute("Address", null);
         
 
         // Redirect the user to the login page or any other appropriate page

@@ -11,6 +11,7 @@
 <body>
 <%@ include file ="/include/header.jsp" %>
 
+
 <div class="blog-section">
         <div class="container">
             <div class="row">
@@ -25,7 +26,7 @@
                                 <li><a href="contact.jsp" class="list-group-item">Contact Us</a></li>
                                 <li><a href="#" class="list-group-item">My Account</a></li>
                                 <li><a href="my_vouchers.jsp" class="list-group-item">My Vouchers</a></li>
-                                  <li><a href="history.jsp" class="list-group-item">Order History</a></li>
+                                  <li><a href="orderHistory.jsp" class="list-group-item">Order History</a></li>
                             </ul>
                         </div>
                     </div>

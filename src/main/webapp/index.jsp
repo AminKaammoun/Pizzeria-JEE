@@ -12,7 +12,7 @@
 <%@ include file ="/include/header.jsp" %>
 <%
 boolean loggedIn = false;
-String username = null;
+String username = null; 
 
 if (sess != null) {
     username = (String) sess.getAttribute("login");

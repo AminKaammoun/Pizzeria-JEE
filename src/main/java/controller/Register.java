@@ -75,7 +75,7 @@ public class Register extends HttpServlet {
 		//Role r = new Role("CLIENT");
 		Client u = new Client(name, login, email, tel, psw);
 		userDao.create(u);
-
+		  response.sendRedirect(request.getContextPath() + "/index.jsp");
 	}
 
 	/** 

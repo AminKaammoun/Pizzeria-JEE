@@ -297,7 +297,7 @@
 							<div class="product-thumb">
 								<div class="image">
 									<a href="product.html" class="thumb-image">
-										<img src="assets/images/products/<%=pizza.getImage()%>" alt="gorgonzola" title="gorgonzola"
+										<img src="assets/images/products/<%=pizza.getImage()%>" alt="<%= pizza.getName() %>" title="<%= pizza.getName() %>"
 											class="img-responsive">
 									</a>
 									<div class="button-group">

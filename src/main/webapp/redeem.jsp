@@ -31,7 +31,7 @@
 										Account</a></li>
 								<li><a href="my_vouchers.jsp" class="list-group-item">My
 										Vouchers</a></li>
-								<li><a href="history.jsp" class="list-group-item">Order
+								<li><a href="orderHistory.jsp" class="list-group-item">Order
 										History</a></li>
 							</ul>
 						</div>
@@ -67,8 +67,8 @@
 							<div class="product-thumb">
 								<div class="image">
 									<a href="#" class="thumb-image"> <img
-										src="assets/images/5.png" alt="Buttercrust"
-										title="Buttercrust" class="img-responsive">
+										src="assets/images/5.png" alt="5%"
+										title="5%" class="img-responsive">
 									</a>
 
 									<div class="product-sale">
@@ -135,7 +135,7 @@
 							<div class="product-thumb">
 								<div class="image">
 									<a href="#" class="thumb-image"> <img
-										src="assets/images/10.png" alt="gorgonzola" title="gorgonzola"
+										src="assets/images/10.png" alt="gorgonzola" title="10%"
 										class="img-responsive">
 									</a>
 
@@ -201,7 +201,7 @@
 							<div class="product-thumb">
 								<div class="image">
 									<a href="#" class="thumb-image"> <img
-										src="assets/images/15.png" alt="Mozzarella" title="Mozzarella"
+										src="assets/images/15.png" alt="Mozzarella" title="15%"
 										class="img-responsive">
 									</a>
 
@@ -268,7 +268,7 @@
 								<div class="image">
 									<a href="#" class="thumb-image"> <img
 										src="assets/images/25.png" alt="Speedy Pizza"
-										title="Speedy Pizza" class="img-responsive">
+										title="25%" class="img-responsive">
 									</a>
 									<div class="product-sale">
 										<span>25% Off</span>
@@ -334,7 +334,7 @@
 								<div class="image">
 									<a href="#" class="thumb-image"> <img
 										src="assets/images/50.png" alt="veggie delight"
-										title="veggie delight" class="img-responsive">
+										title="50%" class="img-responsive">
 									</a>
 
 									<div class="product-sale">

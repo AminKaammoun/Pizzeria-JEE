@@ -7,8 +7,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import model.Client;
 import model.Commande;
-
+import model.Voucher;
 import util.HibernateUtil;
 
 public class CommandeDAO {
@@ -46,6 +47,20 @@ public class CommandeDAO {
 		} finally {
 			session.close();
 		}
+	}
+	
+	
+	public List<Commande> findAllByClient(String email) {
+	    Session session = sessionFactory.openSession();
+	    try {
+	    	ClientDAO clientDAO = new ClientDAO();
+	        Client client = clientDAO.findByLogin(email); // Retrieve Client object by ID
+	        return session.createQuery("from Commande where client = :client", Commande.class)
+	                      .setParameter("client", client)
+	                      .getResultList();
+	    } finally {
+	        session.close();
+	    }
 	}
 
 	public List<Commande> findAll() {

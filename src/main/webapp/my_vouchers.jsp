@@ -30,7 +30,7 @@
 								<li><a href="my_account.jsp" class="list-group-item">My
 										Account</a></li>
 								<li><a href="#" class="list-group-item">My Vouchers</a></li>
-								<li><a href="history.jsp" class="list-group-item">Order
+								<li><a href="orderHistory.jsp" class="list-group-item">Order
 										History</a></li>
 							</ul>
 						</div>

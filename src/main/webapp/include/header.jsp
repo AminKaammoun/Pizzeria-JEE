@@ -24,14 +24,9 @@ if (sess != null) {
 	String username = (String) sess.getAttribute("login");
 	System.out.println("name : " + username);
 	isLoggedIn = true;
-	if (username != null) {
-		// Attribute exists, you can use it
-		// Example: out.println("Welcome back, " + username);
-	} else {
-		// Attribute doesn't exist
-		// Example: out.println("You are not logged in");
-	}
+
 }
+
 %>
 
 <%
@@ -90,24 +85,21 @@ if (client != null) {
 													href="index.jsp"> <span><strong> Home </strong></span>
 												</a></li>
 
+												<li class="with-sub-menu click"><a href="shop.jsp"
+													class="clearfix"> <strong> Shop </strong><span
+														class="labeloffer"></span>
+
+												</a></li>
 												<li class="with-sub-menu click">
-												 <a href="shop.jsp"
-													class="clearfix"> <strong> Shop </strong><span class="labeloffer"></span>
-														
+													<p class="close-menu"></p> <a href="cart.jsp"
+													class="clearfix"> <strong> Cart </strong>
+
 												</a>
 
-												
-												</li>
-												<li class="with-sub-menu click">
-													<p class="close-menu"></p> <a href="cart.jsp" class="clearfix">
-														<strong> Cart </strong> 
-														
-												</a>
  
-												
 												</li>
 
-												<li class="with-sub-menu click">
+												<!-- <li class="with-sub-menu click">
 													<p class="close-menu"></p> <a href="#" class="clearfix">
 														<strong> Product </strong> <span class="labelhot"></span>
 														<b class="fa fa-angle-down"></b>
@@ -475,7 +467,7 @@ if (client != null) {
 														</div>
 													</div>
 												</li>
-
+-->
 												<li class="with-sub-menu click">
 													<p class="close-menu"></p> <a href="#" class="clearfix">
 														<strong> Pages </strong> <b class="fa fa-angle-down"></b>
@@ -487,17 +479,15 @@ if (client != null) {
 															<div class="row">
 																<div class="col-sm-12">
 																	<ul class="route  html-link">
-																		<li><a href="#" class="main-menu">About
-																				Us</a></li>
-																		<li><a href="#" class="main-menu">Contact
-																				Us</a></li>
-																	
+																		<li><a href="#" class="main-menu">About Us</a></li>
+																		<li><a href="#" class="main-menu">Contact Us</a></li>
+
 																		<li><a href="my_account.jsp" class="main-menu">My
 																				Account</a></li>
-																				
+
 																		<li><a href="my_vouchers.jsp" class="main-menu">My
 																				Vouchers</a></li>
-																		<li><a href="#" class="main-menu">Order
+																		<li><a href="orderHistory.jsp" class="main-menu">Order
 																				History</a></li>
 																	</ul>
 
@@ -605,7 +595,7 @@ if (client != null) {
 							</li>
 							<li>
 								<div>
-										<% if (cart != null){ %>
+									<% if (cart != null){ %>
 									<table class="table table-bordered">
 										<tbody>
 											<tr>
@@ -618,16 +608,19 @@ if (client != null) {
 											</tr>
 											<tr>
 												<td class="text-left"><strong>Discount Voucher
-														(<%=pourcentage%>%)</strong></td>
-												<td class="text-right"><%= String.format("%.2f", (total * pourcentage) / 100) %> DT</td>
+														(<%=pourcentage%>%)
+												</strong></td>
+												<td class="text-right"><%= String.format("%.2f", (total * pourcentage) / 100) %>
+													DT</td>
 
 
 											</tr>
 											<tr>
 												<td class="text-left"><strong>Total</strong></td>
-												<td class="text-right"><%=String.format("%.2f",total - (total * pourcentage) / 100)%> DT</td>
+												<td class="text-right"><%=String.format("%.2f",total - (total * pourcentage) / 100)%>
+													DT</td>
 											</tr>
-										</tbody> 
+										</tbody>
 									</table>
 									<%} %>
 
@@ -652,7 +645,7 @@ if (client != null) {
 					<ul class="dropdown-menu dropdown-menu-right account-link-toggle">
 						<% 
 				if (session.getAttribute("login") != null) {
-				%> 
+				%>
 						<li><a href="/Pizzaria/Logout">Logout</a></li>
 						<%
 				}else{
