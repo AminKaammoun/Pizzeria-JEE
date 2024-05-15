@@ -734,7 +734,7 @@
 											"top": 302,
 											"width": 128.53076171875,
 											"height": 13,
-											"text": "-badgeLivreur",
+											"text": "-badgeLivreur: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -965,7 +965,7 @@
 											"top": 310,
 											"width": 164.66796875,
 											"height": 13,
-											"text": "-badgeChef",
+											"text": "-badgeChef: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3179,7 +3179,7 @@
 											"top": 126,
 											"width": 140.8388671875,
 											"height": 13,
-											"text": "-codeAdmin",
+											"text": "-codeAdmin: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3957,7 +3957,7 @@
 											"font": "Arial;13;1",
 											"left": 869,
 											"top": 471,
-											"width": 80.87255859375,
+											"width": 98.5634765625,
 											"height": 13,
 											"text": "Promotion"
 										},
@@ -3992,7 +3992,7 @@
 									"font": "Arial;13;0",
 									"left": 864,
 									"top": 464,
-									"width": 90.87255859375,
+									"width": 108.5634765625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGOrwH/xdaSkt4="
@@ -4047,16 +4047,16 @@
 											"font": "Arial;13;0",
 											"left": 869,
 											"top": 496,
-											"width": 80.87255859375,
+											"width": 98.5634765625,
 											"height": 13,
-											"text": "-pourcentage",
+											"text": "-pourcentage: int",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 864,
 									"top": 489,
-									"width": 90.87255859375,
+									"width": 108.5634765625,
 									"height": 25
 								},
 								{
@@ -4071,7 +4071,7 @@
 									"font": "Arial;13;0",
 									"left": 864,
 									"top": 514,
-									"width": 90.87255859375,
+									"width": 108.5634765625,
 									"height": 10
 								},
 								{
@@ -4111,7 +4111,7 @@
 							"containerChangeable": true,
 							"left": 864,
 							"top": 464,
-							"width": 89.87255859375,
+							"width": 107.5634765625,
 							"height": 60,
 							"nameCompartment": {
 								"$ref": "AAAAAAGOrwH/xdaRO5U="
@@ -6486,7 +6486,7 @@
 							},
 							"name": "badgeLivreur",
 							"visibility": "private",
-							"type": ""
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -6566,7 +6566,7 @@
 							},
 							"name": "badgeChef",
 							"visibility": "private",
-							"type": ""
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -7073,7 +7073,7 @@
 							},
 							"name": "codeAdmin",
 							"visibility": "private",
-							"type": ""
+							"type": "String"
 						}
 					],
 					"operations": [
@@ -7253,7 +7253,7 @@
 							},
 							"name": "pourcentage",
 							"visibility": "private",
-							"type": ""
+							"type": "int"
 						}
 					]
 				},

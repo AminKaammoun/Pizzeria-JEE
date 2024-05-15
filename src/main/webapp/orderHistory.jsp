@@ -123,17 +123,17 @@
 											<%!public String getStatusColor(OrderStatus status) {
 		switch (status) {
 		case IN_HOLD:
-			return "#ff4d4d"; // Red color
+			return "#ff4d4d";
 		case PREPARING:
-			return "orange"; // Orange color
+			return "orange"; 
 		case READY:
-			return "yellow"; // Yellow color
+			return "#F4BC1C"; 
 		case DELIVERING:
-			return "lightgreen"; // Light green color
+			return "lightgreen"; 
 		case DELIVERED:
-			return "green"; // Green color
+			return "green"; 
 		default:
-			return "black"; // Default color (change as needed)
+			return "black"; 
 		}
 	}%>
 

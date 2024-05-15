@@ -6,60 +6,68 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Client;
-
-
+import model.Chef;
+import dao.ClientDAO;
+import dao.ChefDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
-
-import dao.ClientDAO;
-
 public class Auth extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private ClientDAO userDAO; // Dependency Injection of UserDAO
-
+    private ClientDAO clientDAO; 
+    private ChefDAO chefDAO;
+    
     public Auth() {
         super();
-        // Initialize UserDAO
-        this.userDAO = new ClientDAO(); // You might want to use a DI framework for managing dependencies
+        // Initialize DAO instances
+        this.clientDAO = new ClientDAO(); 
+        this.chefDAO = new ChefDAO();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String login = request.getParameter("login");
-        String pass = request.getParameter("pass");
-
-        out.print("login : " + login + "   pass: " + pass + "    ");
-
         try {
-            // Authenticate user using UserDAO
-            Client user = userDAO.findByLogin(login);
+            String login = request.getParameter("login");
+            String pass = request.getParameter("pass");
 
-            if (user != null && user.getPsw().equals(pass.trim())) {
-                // Successful authentication
+            // Authenticate user
+            Client client = clientDAO.findByLogin(login);
+            Chef chef = chefDAO.findByLogin(login);
+
+            if (client != null && client.getPsw().equals(pass.trim())) {
+                // Successful client authentication
                 HttpSession session = request.getSession(true);
-                session.setAttribute("email", user.getEmail());
-                session.setAttribute("login", user.getLogin());
-                session.setAttribute("name", user.getName());
-                session.setAttribute("tel", user.getTel());
-                session.setAttribute("psw", user.getPsw());
-                session.setAttribute("Address", user.getAdresse());
+                setClientSessionAttributes(session, client);
                 response.sendRedirect(request.getContextPath() + "/index.jsp");
+            } else if (chef != null && chef.getPsw().equals(pass.trim())) {
+                // Successful chef authentication
+                HttpSession session = request.getSession(true);
+                setChefSessionAttributes(session, chef);
+                response.sendRedirect(request.getContextPath() + "/order_list.jsp");
             } else {
-                // Authentication failed
-                out.print("User not found or wrong password");
+                // Invalid credentials
+                response.sendRedirect(request.getContextPath() + "/login.jsp?error=invalid");
             }
-        } catch (Exception e) {
-            // Handle authentication error
-            out.print("Error authenticating user: " + e.getMessage());
-            throw new ServletException("Error authenticating user", e);
         } finally {
             out.close(); // Close PrintWriter
         }
     }
 
+    private void setClientSessionAttributes(HttpSession session, Client client) {
+        session.setAttribute("email", client.getEmail());
+        session.setAttribute("login", client.getLogin());
+        session.setAttribute("name", client.getName());
+        session.setAttribute("tel", client.getTel());
+        session.setAttribute("psw", client.getPsw());
+        session.setAttribute("Address", client.getAdresse());
+    }
 
+    private void setChefSessionAttributes(HttpSession session, Chef chef) {
+        session.setAttribute("email", chef.getEmail());
+        session.setAttribute("login", chef.getLogin());
+        session.setAttribute("name", chef.getName());
+        session.setAttribute("psw", chef.getPsw());
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
