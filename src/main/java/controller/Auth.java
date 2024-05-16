@@ -11,17 +11,21 @@ import dao.ClientDAO;
 import dao.ChefDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import model.Livreur;
+import dao.LivreurDAO;
 
 public class Auth extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ClientDAO clientDAO; 
     private ChefDAO chefDAO;
+    private LivreurDAO livreurDAO;
     
     public Auth() {
         super();
         // Initialize DAO instances
         this.clientDAO = new ClientDAO(); 
         this.chefDAO = new ChefDAO();
+        this.livreurDAO = new LivreurDAO();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,6 +37,7 @@ public class Auth extends HttpServlet {
             // Authenticate user
             Client client = clientDAO.findByLogin(login);
             Chef chef = chefDAO.findByLogin(login);
+            Livreur livreur = livreurDAO.findByLogin(login);
 
             if (client != null && client.getPsw().equals(pass.trim())) {
                 // Successful client authentication
@@ -44,7 +49,12 @@ public class Auth extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 setChefSessionAttributes(session, chef);
                 response.sendRedirect(request.getContextPath() + "/order_list.jsp");
-            } else {
+            } else if(livreur != null && livreur.getPsw().equals(pass.trim())) {
+            	HttpSession session = request.getSession(true);
+                setLivreurSessionAttributes(session, livreur);
+                response.sendRedirect(request.getContextPath() + "/readyOrderLivreur.jsp");
+            }
+            else {
                 // Invalid credentials
                 response.sendRedirect(request.getContextPath() + "/login.jsp?error=invalid");
             }
@@ -67,6 +77,14 @@ public class Auth extends HttpServlet {
         session.setAttribute("login", chef.getLogin());
         session.setAttribute("name", chef.getName());
         session.setAttribute("psw", chef.getPsw());
+    }
+    
+    
+    private void setLivreurSessionAttributes(HttpSession session, Livreur livreur) {
+        session.setAttribute("email", livreur.getEmail());
+        session.setAttribute("login", livreur.getLogin());
+        session.setAttribute("name", livreur.getName());
+        session.setAttribute("psw", livreur.getPsw());
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

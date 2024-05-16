@@ -13,6 +13,11 @@ public class Livreur extends User{
 	private String badge;
 	
 
+	public Livreur() {
+		
+	} 
+	
+	
 	public Livreur(String name, String login, String password, String badge, String email) {
 		super(name, login, password, email);
 		this.badge = badge;

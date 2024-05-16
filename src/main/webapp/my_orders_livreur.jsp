@@ -25,12 +25,12 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 				<div id="content" class="col-sm-12  all-blog">
 					<div class="breadcrumb-main"> 
 						<div class="breadcrumb-container clearfix">
-							<h1 class="page-title">Ready Orders</h1>
+							<h1 class="page-title">My Orders</h1>
 
 							<ul class="breadcrumb">
 								<li><a href="#">Pages</a></li>
 
-								<li><a href="#">Ready Orders List</a></li> 
+								<li><a href="#">My Orders</a></li> 
 
 							</ul>
 						</div>

@@ -292,7 +292,11 @@
 					<div class="category-row row">
 				
 						
-						 <%   for (Pizza pizza : pizzas) { %>
+						 <%   
+						 int counter = 0;
+						 for (Pizza pizza : pizzas) { 
+						 	counter++;
+						 %>
 						<div class="product-layout product-grid col-lg-4 col-md-6 col-sm-4 col-xs-4">
 							<div class="product-thumb">
 								<div class="image">
@@ -350,7 +354,7 @@
 						
 					<div class="pagination-main">
 						<div class="row">
-							<div class="col-sm-6 text-left">Showing 1 to 5 of 5 (1 Pages)</div>
+							<div class="col-sm-6 text-left">Showing 1 to <%=counter %> of <%=counter %> (1 Pages)</div>
 							<div class="col-sm-6 text-right"></div>
 						</div>
 					</div>
