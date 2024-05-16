@@ -8,15 +8,13 @@
 <%@ include file="/include/css.jsp"%>
 </head>
 <body>
-	<%@ include file="/include/chef_header.jsp"%>
-
-<%@ page import="model.Commande"%>
+	<%@ include file="/include/livreur_header.jsp"%>
+	
+	<%@ page import="model.Commande"%>
 <%@ page import="dao.CommandeDAO"%>
 <%@ page import="main.OrderStatus"%>
-
-
-
-<%
+	
+	<%
 
 CommandeDAO commandeDAO = new CommandeDAO();
 
@@ -24,7 +22,8 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 
 
 %>
-<div class="blog-section donuts">
+	
+	<div class="blog-section donuts">
 		<div class="container">
 			<div class="row">
 			
@@ -51,7 +50,7 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 					<%
 					int counter = 0;
 					for (Commande commande : commandes){
-						if(commande.getStatus() == OrderStatus.PREPARING){
+						if(commande.getStatus() == OrderStatus.READY){
 							counter++;
 						%>
 					
@@ -102,7 +101,7 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 											</p>
 											<button class="addcart" type="button" style="margin-left:50px"><i
 													class="icon-shopping-bag hidden"></i>
-												<span class=""><a href="Ready?orderId=<%=commande.getId()%>">Ready</a>
+												<span class=""><a href="TakeOrder?orderId=<%=commande.getId()%>">Take</a>
 												</span></button>
 												
 												<button class="addcart" type="button"><i
@@ -141,7 +140,10 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 			</div>
 		</div>
 	</div>
-		<%@ include file="/include/js.jsp"%>
+	
+	
+	<%@ include file="/include/js.jsp"%>
 		<%@ include file="/include/footer.jsp"%>
+
 </body>
 </html>

@@ -108,6 +108,7 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 					
 					<%  }} %>
 						
+						<%if (counter == 0){ %>
 						<div class="empty-cart">
 						<center>
 							<h3>No orders to prepare.</h3>
@@ -116,7 +117,7 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 						</center>
 					>
 					</div>
-					
+					<%} %>
 						
 					<div class="pagination-main">
 						<div class="row">

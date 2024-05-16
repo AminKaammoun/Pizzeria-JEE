@@ -135,4 +135,24 @@
     <servlet-name>ShowCommandeDetails</servlet-name>
     <url-pattern>/ShowCommandeDetails</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TakeOrder</display-name>
+    <servlet-name>TakeOrder</servlet-name>
+    <servlet-class>controller.TakeOrder</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TakeOrder</servlet-name>
+    <url-pattern>/TakeOrder</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Deliver</display-name>
+    <servlet-name>Deliver</servlet-name>
+    <servlet-class>controller.Deliver</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Deliver</servlet-name>
+    <url-pattern>/Deliver</url-pattern>
+  </servlet-mapping>
 </web-app>

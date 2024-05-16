@@ -294,7 +294,7 @@
 											</tr>
 											<tr>
 												<td class="text-left cart-total-title">Discount Voucher
-													(0%):</td>
+													(<%=pourcentage%>%):</td>
 												<td class="text-right cart-total-price">-<%= String.format("%.2f", (total * pourcentage) / 100) %> DT</td>
 											</tr>
 											<tr>

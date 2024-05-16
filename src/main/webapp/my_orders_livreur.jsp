@@ -4,25 +4,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Current Orders</title>
+<title>My Orders</title>
 <%@ include file="/include/css.jsp"%>
 </head>
 <body>
-	<%@ include file="/include/chef_header.jsp"%>
+	<%@ include file="/include/livreur_header.jsp"%>
 
 <%@ page import="model.Commande"%>
 <%@ page import="dao.CommandeDAO"%>
 <%@ page import="main.OrderStatus"%>
 
-
-
 <%
-
 CommandeDAO commandeDAO = new CommandeDAO();
-
 java.util.List<Commande> commandes = commandeDAO.findAll();
-
-
 %>
 <div class="blog-section donuts">
 		<div class="container">
@@ -31,12 +25,12 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 				<div id="content" class="col-sm-12  all-blog">
 					<div class="breadcrumb-main"> 
 						<div class="breadcrumb-container clearfix">
-							<h1 class="page-title">Current Orders</h1>
+							<h1 class="page-title">Ready Orders</h1>
 
 							<ul class="breadcrumb">
 								<li><a href="#">Pages</a></li>
 
-								<li><a href="#">Current Orders List</a></li> 
+								<li><a href="#">Ready Orders List</a></li> 
 
 							</ul>
 						</div>
@@ -51,7 +45,7 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 					<%
 					int counter = 0;
 					for (Commande commande : commandes){
-						if(commande.getStatus() == OrderStatus.PREPARING){
+						if(commande.getStatus() == OrderStatus.DELIVERING){
 							counter++;
 						%>
 					
@@ -102,7 +96,7 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 											</p>
 											<button class="addcart" type="button" style="margin-left:50px"><i
 													class="icon-shopping-bag hidden"></i>
-												<span class=""><a href="Ready?orderId=<%=commande.getId()%>">Ready</a>
+												<span class=""><a href="Deliver?orderId=<%=commande.getId()%>">Deliver</a> 
 												</span></button>
 												
 												<button class="addcart" type="button"><i
@@ -114,22 +108,21 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 								</div>
 							</div> 
 						</div>
-				
-						<%
+					<%
 						}} %>
 					
-					<% if(counter == 0) {%>
+					<%if (counter == 0) { %>
 						
 						<div class="empty-cart">
 						<center>
-							<h3>No active orders.</h3>
+							<h3>No ready orders.</h3>
 							<img src="assets/images/cart.png" alt="Veggie Delight"
 								title="Veggie Delight">
 						</center>
-					>
+					> 
 					</div>
-						
 						<%} %>
+					
 						
 					<div class="pagination-main">
 						<div class="row">
