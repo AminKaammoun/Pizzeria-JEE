@@ -79,7 +79,7 @@ mvn clean install
 <p>8. Access the Application</p>
 
 ```
-http://localhost:8080/Pizzeria-JEE
+http://localhost:8080/Pizzaria
 ```
 
 <h2>Project Screenshots:</h2>

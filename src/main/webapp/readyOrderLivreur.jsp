@@ -89,6 +89,22 @@ java.util.List<Commande> commandes = commandeDAO.findAll();
 												<span class="fa fa-stack"><i class="fa-regular fa-star"></i></span>
 											</div>
 										</div>
+										<br>
+										<div class="title-rating clearfix">
+											<h4 class="product-title"><a href="#"><center>Address : <%=commande.getAddress() %></center></a></h4>  
+											<div class="rating">
+												<span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+														class="fa fa-star-o fa-stack-2x"></i></span>
+												<span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+														class="fa fa-star-o fa-stack-2x"></i></span>
+												<span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+														class="fa fa-star-o fa-stack-2x"></i></span>
+												<span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i
+														class="fa fa-star-o fa-stack-2x"></i></span>
+												<span class="fa fa-stack"><i class="fa-regular fa-star"></i></span>
+											</div>
+										</div>
+										
 										<div class="price-cartbtn clearfix">
 											<p class="price">
 												 <%=commande.getAmount() %> DT
