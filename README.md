@@ -34,6 +34,12 @@ The following image presents the class diagram of our application:
 
 <img src="https://res.cloudinary.com/da4fhullk/image/upload/v1717125055/pizzaria%20JEE/classDiagram_w7w3zr.png" alt="project-screenshot"  height="400/">
 
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   JEE
+
 <h2>🏗️ Prerequisites</h2>
 
 *    Java Development Kit (JDK): Ensure you have JDK 8 or higher installed.
@@ -41,12 +47,6 @@ The following image presents the class diagram of our application:
 *    Database: Set up a MySQL database (or any other database of your choice).
 *    Maven: Ensure Maven is installed for managing dependencies and building the project.
 *    Git: Install Git for cloning the repository.
-
-<h2>💻 Built with</h2>
-
-Technologies used in the project:
-
-*   JEE
 
 <h2>🛠️ Installation Steps:</h2>
 
